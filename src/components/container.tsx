@@ -5,7 +5,10 @@ export const Container = ({
   children,
   ...props
 }: React.ComponentProps<"div">) => (
-  <div className={clsx("mx-auto max-w-2xl lg:max-w-5xl", className)} {...props}>
+  <div
+    className={clsx("mx-16 mt-8 max-w-2xl lg:max-w-5xl", className)}
+    {...props}
+  >
     {children}
   </div>
 );

@@ -1,3 +1,4 @@
+import { Breakpoints } from "../src/components/breakpoints";
 import { Container } from "../src/components/container";
 import { Header } from "../src/components/header";
 import "./globals.css";
@@ -21,6 +22,7 @@ export default function RootLayout({
                 <main>{children}</main>
                 footer
               </Container>
+              <Breakpoints />
             </div>
           </div>
         </div>

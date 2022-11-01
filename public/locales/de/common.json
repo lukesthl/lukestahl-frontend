@@ -1,6 +1,17 @@
 {
-  "home": {},
+  "home": {
+    "title": "Frontend / App Entwickler, Video- und Hobby-Fotograf.",
+    "description": "Ich bin Luke, a software designer and Lorem Ipsum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+  },
   "navigation": {
-    "about": "Über mich"
+    "about": "Über mich",
+    "projects": "Projekte",
+    "pictures": "Bilder",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "copyright": "© 2022 Luke Stahl. All rights reserved.",
+    "imprint": "Impressum",
+    "privacypolicy": "Datenschutz"
   }
 }

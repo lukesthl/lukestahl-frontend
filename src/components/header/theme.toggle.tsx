@@ -6,12 +6,7 @@ export const ThemeToggle = () => {
 		let darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 		let isSystemDarkMode = darkModeMediaQuery.matches;
 		let isDarkMode = document.documentElement.classList.toggle("dark");
-
-		if (isDarkMode === isSystemDarkMode) {
-			delete window.localStorage.isDarkMode;
-		} else {
-			window.localStorage.isDarkMode = isDarkMode;
-		}
+		window.localStorage.isDarkMode = isDarkMode;
 	};
 
 	useEffect(() => {
@@ -19,15 +14,11 @@ export const ThemeToggle = () => {
 		let isSystemDarkMode = darkModeMediaQuery.matches;
 		let isDarkMode =
 			window.localStorage.isDarkMode === "true" || (!("isDarkMode" in window.localStorage) && isSystemDarkMode);
-
+		window.localStorage.isDarkMode = isDarkMode;
 		if (isDarkMode) {
 			document.documentElement.classList.add("dark");
 		} else {
 			document.documentElement.classList.remove("dark");
-		}
-
-		if (isDarkMode === isSystemDarkMode) {
-			delete window.localStorage.isDarkMode;
 		}
 	}, []);
 	return (

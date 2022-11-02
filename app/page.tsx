@@ -2,8 +2,11 @@ import Image from "next/image";
 import { Container } from "../src/components/container";
 import { Avatar } from "../src/components/header/avatar";
 import { Photos } from "../src/components/photos";
+import { ProjectList } from "../src/components/projects/project.list";
+import { Resume } from "../src/components/resume";
 import { SocialLinks } from "../src/components/social/links";
 import { SocialLink } from "../src/components/social/social.link";
+import { TechStack } from "../src/components/techstack";
 import { translate } from "../src/components/translation";
 
 export default function Home() {
@@ -23,9 +26,20 @@ export default function Home() {
 					</div>
 				</div>
 			</Container>
-			<div className="mt-16 sm:mt-20">
+			<div className="mt-16">
 				<Photos />
 			</div>
+			<Container className="mt-24">
+				<div className="grid grid-cols-2 gap-y-20">
+					<div>
+						<ProjectList />
+					</div>
+					<div className="pl-24">
+						<Resume />
+						<TechStack />
+					</div>
+				</div>
+			</Container>
 		</div>
 	);
 }

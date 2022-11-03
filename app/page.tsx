@@ -8,8 +8,10 @@ import { SocialLinks } from "../src/components/social/links";
 import { SocialLink } from "../src/components/social/social.link";
 import { TechStack } from "../src/components/techstack";
 import { translate } from "../src/components/translation";
+import { ProjectService } from "../src/lib/project.service";
 
-export default function Home() {
+export default async function Home() {
+	const projects = await ProjectService.getProjects();
 	return (
 		<div className="mt-28">
 			<Container>
@@ -32,7 +34,7 @@ export default function Home() {
 			<Container className="mt-24">
 				<div className="grid grid-cols-2 gap-y-20">
 					<div>
-						<ProjectList />
+						<ProjectList projects={projects} />
 					</div>
 					<div className="pl-24">
 						<Resume />

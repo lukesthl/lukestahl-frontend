@@ -2,8 +2,7 @@ import Link from "next/link";
 import { IProject, ProjectService } from "../../lib/project.service";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
-export const ProjectList = async () => {
-	const projects = await ProjectService.getProjects();
+export const ProjectList = ({ projects }: { projects: IProject[] }) => {
 	return (
 		<div className="flex flex-col gap-12">
 			{projects.map(project => (

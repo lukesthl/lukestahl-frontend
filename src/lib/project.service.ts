@@ -12,7 +12,7 @@ interface IMeta {
 	tags: string[];
 }
 
-interface IProject {
+export interface IProject {
 	slug: string;
 	meta: IMeta;
 	content: string;

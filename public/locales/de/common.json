@@ -1,7 +1,14 @@
 {
   "home": {
     "title": "Frontend / App Entwickler, Video- und Hobby-Fotograf.",
-    "description": "Ich bin Luke, a software designer and Lorem Ipsum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+    "description": "Ich bin Luke, a software designer and Lorem Ipsum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.",
+    "resume": {
+      "workexperience": "Berufserfahrung",
+      "apprenticeship": "Ausbildung",
+      "techstack" :"Tech Stack",
+      "today": "Heute",
+      "download": "Lebenslauf herunterladen"
+    }
   },
   "navigation": {
     "about": "Über mich",

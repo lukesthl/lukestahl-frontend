@@ -36,7 +36,7 @@ export default async function Home() {
 					<div>
 						<ProjectList projects={projects} />
 					</div>
-					<div className="pl-24">
+					<div className="space-y-8 pl-24">
 						<Resume />
 						<TechStack />
 					</div>

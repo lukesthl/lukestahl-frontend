@@ -13,7 +13,7 @@ import { ProjectService } from "../src/lib/project.service";
 export default async function Home() {
 	const projects = await ProjectService.getProjects();
 	return (
-		<div className="mt-28">
+		<div className="mt-14 sm:mt-28">
 			<Container>
 				<div className="max-w-2xl">
 					<Avatar size="large" />
@@ -31,12 +31,12 @@ export default async function Home() {
 			<div className="mt-16">
 				<Photos />
 			</div>
-			<Container className="mt-24">
-				<div className="grid grid-cols-2 gap-y-20">
+			<Container className="mt-16 sm:mt-24">
+				<div className="grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-y-20">
 					<div>
 						<ProjectList projects={projects} />
 					</div>
-					<div className="space-y-8 pl-24">
+					<div className="space-y-8 md:pl-24">
 						<Resume />
 						<TechStack />
 					</div>

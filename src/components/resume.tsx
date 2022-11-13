@@ -36,21 +36,21 @@ export const Resume = () => (
 				{translate("home.resume.workexperience")}
 			</p>
 		</div>
-		<div className="mt-4 flex flex-col gap-4">
+		<div className="mt-5 flex flex-col gap-4">
 			{resume
 				.filter(resumeItem => resumeItem.type === "job")
 				.map(resumeItem => (
 					<ResumeItem resumeItem={resumeItem} key={resumeItem.key} />
 				))}
 		</div>
-		<div className="border-zink-100 my-8 mx-2 border-t dark:border-zinc-700/40" />
+		<div className="border-zink-100 my-6 mx-2 border-t dark:border-zinc-700/40" />
 		<div className="flex items-center gap-2">
 			<BriefCaseIcon className="h-6 w-6" />
 			<p className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
 				{translate("home.resume.apprenticeship")}
 			</p>
 		</div>
-		<div className="mt-4 flex flex-col gap-4">
+		<div className="mt-5 flex flex-col gap-4">
 			{resume
 				.filter(resumeItem => resumeItem.type === "apprenticeship")
 				.map(resumeItem => (

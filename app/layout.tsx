@@ -9,6 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<head>
 				<title>Luke Stahl</title>
 				<link rel="icon" href="/favicon.ico" />
+				<meta name="viewport" content="width=device-width" />
 			</head>
 			<body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
 				<div className="fixed inset-0 flex justify-center sm:px-8">

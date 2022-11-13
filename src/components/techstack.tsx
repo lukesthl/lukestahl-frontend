@@ -90,7 +90,7 @@ export const TechStack = () => (
 			<StackIcon className="h-[1.65rem] w-[1.65rem]" />
 			<p className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">{translate("home.resume.techstack")}</p>
 		</div>
-		<div className="mt-4 flex flex-wrap justify-center gap-4">
+		<div className="mt-5 flex flex-wrap justify-center gap-2 sm:gap-4">
 			{stack.map(({ logo: Logo, ...stackItem }) => (
 				<div
 					className="rounded-full bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10"

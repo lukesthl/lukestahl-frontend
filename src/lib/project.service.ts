@@ -1,7 +1,9 @@
 import glob from "fast-glob";
 import { readFileSync } from "fs";
 import matter from "gray-matter";
+import MarkdownIt from "markdown-it";
 import * as path from "path";
+import { getPlaiceholder } from "plaiceholder";
 
 interface IMeta {
 	title: string;
@@ -9,6 +11,9 @@ interface IMeta {
 	date: string;
 	description: string;
 	bannerImage: string;
+	bannerImageBlur: string | undefined;
+	icon: string;
+	links: string[];
 	tags: string[];
 }
 
@@ -21,12 +26,20 @@ export interface IProject {
 export class ProjectService {
 	public static getProjectByFileName = async (projectFileName: string): Promise<IProject> => {
 		console.time("projectFile:" + projectFileName);
-		let { data, content } = await matter(readFileSync(path.join(process.cwd(), `/projects/${projectFileName}`)));
+		const fileNameDecoded = decodeURIComponent(projectFileName);
+		let { data, content } = await matter(readFileSync(path.join(process.cwd(), `/projects/${fileNameDecoded}`)));
+		const meta = data as IMeta;
+		meta.bannerImageBlur = (
+			await getPlaiceholder(meta.bannerImage).catch(error => {
+				console.log(error);
+				return null;
+			})
+		)?.base64;
 		console.timeEnd("projectFile:" + projectFileName);
 		return {
 			slug: projectFileName.replace(/(\/index)?\.md$/, ""),
-			meta: data as IMeta,
-			content,
+			meta,
+			content: new MarkdownIt().render(content),
 		};
 	};
 

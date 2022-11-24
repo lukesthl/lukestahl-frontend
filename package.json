@@ -11,17 +11,23 @@
   "dependencies": {
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.13",
+    "@plaiceholder/next": "^2.5.0",
     "clsx": "^1.2.1",
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
+    "markdown-it": "^13.0.1",
     "next": "^13.0.5",
+    "plaiceholder": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-tooltip": "^4.5.1"
+    "react-tooltip": "^4.5.1",
+    "sharp": "^0.31.2"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
+    "@tailwindcss/typography": "^0.5.8",
     "@types/lodash": "^4.14.190",
+    "@types/markdown-it": "^12.2.3",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",

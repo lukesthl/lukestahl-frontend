@@ -22,7 +22,7 @@ export default async function Home() {
 					</h1>
 					<p className="mt-6 text-zinc-600 dark:text-zinc-400">{translate("home.description")}</p>
 					<div className="mt-6 flex gap-7">
-						{SocialLinks.map(socialLink => (
+						{SocialLinks.map(({ title: _, ...socialLink }) => (
 							<SocialLink {...socialLink} key={socialLink.href} />
 						))}
 					</div>

@@ -8,8 +8,8 @@ export const navItems = [
 		key: "navigation.projects",
 	},
 	{
-		href: "/pictures",
-		key: "navigation.pictures",
+		href: "/photos",
+		key: "navigation.photos",
 	},
 	{
 		href: "/contact",

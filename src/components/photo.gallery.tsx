@@ -1,23 +1,46 @@
 "use client";
 import { Listbox, Transition } from "@headlessui/react";
-import { ChevronUpDownIcon, CheckIcon } from "@heroicons/react/20/solid";
-import { Fragment, useState } from "react";
-import { Container } from "./container";
-import { imagesDarkMode, imagesWhiteMode } from "./photos";
-import { translate } from "./translation";
-import Image from "next/image";
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
+import Image from "next/image";
+import React, { Fragment, useEffect, useState } from "react";
+import { IImage } from "../lib/image.service";
+import { Container } from "./container";
+import { translate } from "./translation";
 
 type SortSelection = "newest" | "oldest";
 
-const options: { key: number; name: SortSelection }[] = [
+const options: {
+	key: number;
+	name: SortSelection;
+	icon: (props: React.ComponentProps<"svg">) => JSX.Element;
+	onSelect: (images: IImage[]) => IImage[];
+}[] = [
 	{
 		key: 1,
 		name: "newest",
+		icon: props => <ChevronDownIcon {...props} />,
+		onSelect: (images: IImage[]) => {
+			const sorted = images.sort(
+				(imageA, imageB) =>
+					new Date(imageB.exifData.CreateDate || Infinity).getTime() -
+					new Date(imageA.exifData.CreateDate || Infinity).getTime()
+			);
+			return sorted;
+		},
 	},
 	{
 		key: 2,
 		name: "oldest",
+		icon: props => <ChevronUpIcon {...props} />,
+		onSelect: (images: IImage[]) => {
+			const sorted = images.sort(
+				(imageA, imageB) =>
+					new Date(imageA.exifData.CreateDate || Infinity).getTime() -
+					new Date(imageB.exifData.CreateDate || Infinity).getTime()
+			);
+			return sorted;
+		},
 	},
 ];
 
@@ -29,11 +52,13 @@ const shuffle = <T,>(a: T[]) => {
 	return a;
 };
 
-const allImages = imagesWhiteMode.concat(imagesDarkMode);
+export const PhotoGallery = ({ images: allImages }: { images: IImage[] }) => {
+	const [selectedSorter, setSelectedSorter] = useState(options[0]);
+	useEffect(() => {
+		setImages(selectedSorter.onSelect(allImages));
+	}, [allImages, selectedSorter]);
 
-export const PhotoGallery = () => {
-	const [selectedSorter, setSelectedSorter] = useState<SortSelection>("newest");
-	const [images, setImages] = useState<typeof imagesWhiteMode>(allImages);
+	const [images, setImages] = useState(allImages);
 	return (
 		<div>
 			<Container>
@@ -41,15 +66,18 @@ export const PhotoGallery = () => {
 					<Listbox
 						value={selectedSorter}
 						onChange={value => {
-							setImages(shuffle(allImages));
+							setImages(value.onSelect(images));
 							setSelectedSorter(value);
 						}}
 					>
 						<div className="relative mt-1">
-							<Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-								<span className="block truncate">{translate(`photos.sorter.${selectedSorter}`)}</span>
+							<Listbox.Button className="text-zinc800 relative flex w-full cursor-default rounded-lg bg-white/90 bg-white px-3 py-2 pl-3 pr-10 text-left text-sm font-medium shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur focus:outline-none focus-visible:border-zinc-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-300 dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 sm:text-sm">
+								<span className="block truncate">{translate(`photos.sorter.${selectedSorter.name}`)}</span>
 								<span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-									<ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+									{selectedSorter.icon({
+										className: "h-5 w-5 text-gray-400",
+										"aria-hidden": "true",
+									})}
 								</span>
 							</Listbox.Button>
 							<Transition
@@ -58,16 +86,18 @@ export const PhotoGallery = () => {
 								leaveFrom="opacity-100"
 								leaveTo="opacity-0"
 							>
-								<Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+								<Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-zinc-800 dark:text-zinc-200 dark:ring-white/10 sm:text-sm">
 									{options.map(option => (
 										<Listbox.Option
 											key={option.key}
 											className={({ active }) =>
 												`relative cursor-default select-none py-2 pl-10 pr-4 ${
-													active ? "bg-amber-100 text-amber-900" : "text-gray-900"
+													active
+														? "bg-zinc-100 text-zinc-900 dark:bg-zinc-700 dark:text-zinc-200"
+														: "text-gray-900 dark:text-zinc-200"
 												}`
 											}
-											value={option.name}
+											value={option}
 										>
 											{({ selected }) => (
 												<>
@@ -75,7 +105,7 @@ export const PhotoGallery = () => {
 														{translate(`photos.sorter.${option.name}`)}
 													</span>
 													{selected ? (
-														<span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
+														<span className="text-primary absolute inset-y-0 left-0 flex items-center pl-3">
 															<CheckIcon className="h-5 w-5" aria-hidden="true" />
 														</span>
 													) : null}
@@ -89,7 +119,7 @@ export const PhotoGallery = () => {
 					</Listbox>
 				</div>
 			</Container>
-			<div className="2xl:max-w-8xl relative mx-4 mt-8 grid grid-cols-2 gap-5 sm:gap-6 md:mx-16 md:grid-cols-5">
+			<div className="2xl:max-w-8xl relative mx-4 mt-8 grid grid-cols-2 gap-5 sm:gap-6 md:mx-12 md:grid-cols-5">
 				{images.map((image, imageIndex) => (
 					<div
 						key={imageIndex}
@@ -97,7 +127,8 @@ export const PhotoGallery = () => {
 							"relative aspect-[9/10] w-full overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl"
 						)}
 					>
-						<Image src={image.src} alt={image.alt} fill className="object-cover" />
+						<Image src={image.url} alt={"todo"} fill className="object-cover" />
+						<pre className="">{JSON.stringify(image.exifData.CreateDate)}</pre>
 					</div>
 				))}
 			</div>

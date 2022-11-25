@@ -13,7 +13,7 @@ import image5DarkMode from "../../public/assets/images/darkmode/image-5.jpg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const imagesWhiteMode = [
+export const imagesWhiteMode = [
 	{
 		src: image1,
 		alt: "image 1",
@@ -36,7 +36,7 @@ const imagesWhiteMode = [
 	},
 ];
 
-const imagesDarkMode = [
+export const imagesDarkMode = [
 	{
 		src: image1DarkMode,
 		alt: "image 1",

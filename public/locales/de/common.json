@@ -21,10 +21,18 @@
     "title":"Super coole Projekte die ich erstellt habe!",
     "description":"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
   },
+  "photos": {
+    "title": "Meine Bilder",
+    "description": "I’ve loved making things for as long as I can remember, and wrote my first program when I was 6 years old, just two weeks after my mom brought home the brand new Macintosh LC 550 that I taught myself to type on.",
+    "sorter": {
+      "newest": "Neueste zuerst",
+      "oldest": "Älteste zuerst"
+    }
+  },
   "navigation": {
     "about": "Über mich",
     "projects": "Projekte",
-    "pictures": "Bilder",
+    "photos": "Bilder",
     "contact": "Kontakt"
   },
   "footer": {

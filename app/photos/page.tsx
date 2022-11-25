@@ -5,8 +5,10 @@ import { translate } from "../../src/components/translation";
 import AvatarPicture from "../../public/assets/images/darkmode/image-1.jpg";
 import Image from "next/image";
 import { PhotoGallery } from "../../src/components/photo.gallery";
+import { ImageService } from "../../src/lib/image.service";
 
-export default function Photos() {
+export default async function Photos() {
+	const images = JSON.parse(await ImageService.getImages());
 	return (
 		<>
 			<Container className="mt-16 md:mt-32">
@@ -26,7 +28,7 @@ export default function Photos() {
 			</Container>
 
 			<div className="mt-8">
-				<PhotoGallery />
+				<PhotoGallery images={images} />
 			</div>
 		</>
 	);

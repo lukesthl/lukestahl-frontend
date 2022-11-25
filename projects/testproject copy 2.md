@@ -3,7 +3,7 @@ author: 'Luke Stahl'
 date: '2022-09-05'
 title: 'Luke Stahl Landingpage'
 description: 'Eine persönliche Landingpage mit Portfolio um NextJS 13 zu testen'
-bannerImage: "/assets/images/projects/testproject.jpg"
+bannerImage: "/assets/projects/testproject.jpg"
 icon: "/assets/logos/nextjs-icon.svg"
 links:
     - https://github.com/lukesthl/lukestahl-frontend

@@ -6,7 +6,7 @@ import { Resume } from "../src/components/home/resume";
 import { SocialLinks } from "../src/components/social/links";
 import { SocialLink } from "../src/components/social/social.link";
 import { TechStack } from "../src/components/home/techstack";
-import { translate } from "../src/components/translation";
+import { translate } from "../src/components/utils/translation";
 
 export default async function Home() {
 	return (

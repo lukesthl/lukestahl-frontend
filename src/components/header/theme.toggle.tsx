@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { Button } from "../button";
+import { Button } from "../ui/button";
 
 export const ThemeToggle = () => {
 	const toggleTheme = () => {

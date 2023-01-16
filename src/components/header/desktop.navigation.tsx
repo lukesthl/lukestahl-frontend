@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Link from "next/link";
-import { translate } from "../translation";
+import { translate } from "../utils/translation";
 import { navItems } from "./navitems";
 
 export const DesktopNavigation = ({ className, ...props }: React.ComponentProps<"nav">) => (

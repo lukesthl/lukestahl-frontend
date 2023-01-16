@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Container } from "../../src/components/layout/container";
-import { translate } from "../../src/components/translation";
+import { translate } from "../../src/components/utils/translation";
 import AvatarPicture from "../../public/assets/images/darkmode/image-1.jpg";
 import { SocialLinks } from "../../src/components/social/links";
 import { SocialLink } from "../../src/components/social/social.link";

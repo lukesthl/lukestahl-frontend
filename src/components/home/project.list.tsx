@@ -2,7 +2,7 @@ import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import React from "react";
 import { IProject, ProjectService } from "../../services/project.service";
-import { translate } from "../translation";
+import { translate } from "../utils/translation";
 
 export const ProjectList = async () => {
 	const projects = await ProjectService.getProjects();

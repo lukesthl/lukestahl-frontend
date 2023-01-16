@@ -1,4 +1,4 @@
-import Resource from "../../public/locales/de/common.json";
+import Resource from "../../../public/locales/de/common.json";
 import lodashGet from "lodash/get";
 
 interface IOptions {

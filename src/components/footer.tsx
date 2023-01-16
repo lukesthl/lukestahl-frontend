@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Container } from "./container";
+import { Container } from "./layout/container";
 import { navItems } from "./header/navitems";
 import { translate } from "./translation";
 
@@ -15,7 +15,9 @@ export const Footer = () => (
 							</Link>
 						))}
 					</div>
-					<p className="text-sm text-zinc-400">{translate("footer.copyright")}</p>
+					<p className="text-sm text-zinc-400">
+						{translate("footer.copyright", { context: { year: new Date().getFullYear() } })}
+					</p>
 				</div>
 			</Container>
 		</div>

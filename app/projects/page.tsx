@@ -1,10 +1,10 @@
 import { ChevronRightIcon, LinkIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
-import { SimpleLayout } from "../../src/components/simplelayout";
+import { SimpleLayout } from "../../src/components/layout/simplelayout";
 import { GitHubIcon } from "../../src/components/social/links";
 import { translate } from "../../src/components/translation";
-import { ProjectService } from "../../src/lib/project.service";
+import { ProjectService } from "../../src/services/project.service";
 
 export default async function Projects() {
 	const projects = await ProjectService.getProjects();

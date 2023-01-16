@@ -1,13 +1,11 @@
-import { Container } from "../../src/components/container";
-import { SocialLinks } from "../../src/components/social/links";
-import { SocialLink } from "../../src/components/social/social.link";
-import { translate } from "../../src/components/translation";
-import AvatarPicture from "../../public/assets/images/darkmode/image-1.jpg";
 import Image from "next/image";
-import { PhotoGallery } from "../../src/components/photo.gallery";
-import { ImageService } from "../../src/lib/image.service";
+import AvatarPicture from "../../public/assets/images/darkmode/image-1.jpg";
+import { Container } from "../../src/components/layout/container";
+import { ImageGallery } from "../../src/components/images/image.gallery";
+import { translate } from "../../src/components/translation";
+import { ImageService } from "../../src/services/image.service";
 
-export default async function Photos() {
+export default async function Images() {
 	const images = JSON.parse(await ImageService.getImages());
 	return (
 		<>
@@ -28,7 +26,7 @@ export default async function Photos() {
 			</Container>
 
 			<div className="mt-8">
-				<PhotoGallery images={images} />
+				<ImageGallery images={images} />
 			</div>
 		</>
 	);

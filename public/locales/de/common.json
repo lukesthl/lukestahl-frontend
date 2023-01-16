@@ -36,7 +36,7 @@
     "contact": "Kontakt"
   },
   "footer": {
-    "copyright": "© 2022 Luke Stahl. All rights reserved.",
+    "copyright": "© ${year} Luke Stahl. All rights reserved.",
     "imprint": "Impressum",
     "privacypolicy": "Datenschutz"
   }

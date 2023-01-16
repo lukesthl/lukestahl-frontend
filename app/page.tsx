@@ -1,17 +1,14 @@
-import Image from "next/image";
-import { Container } from "../src/components/container";
+import { Container } from "../src/components/layout/container";
 import { Avatar } from "../src/components/header/avatar";
-import { Photos } from "../src/components/photos";
-import { ProjectList } from "../src/components/projects/project.list";
-import { Resume } from "../src/components/resume";
+import { HorizontalImageList } from "../src/components/home/horizontal.imagelist";
+import { ProjectList } from "../src/components/home/project.list";
+import { Resume } from "../src/components/home/resume";
 import { SocialLinks } from "../src/components/social/links";
 import { SocialLink } from "../src/components/social/social.link";
-import { TechStack } from "../src/components/techstack";
+import { TechStack } from "../src/components/home/techstack";
 import { translate } from "../src/components/translation";
-import { ProjectService } from "../src/lib/project.service";
 
 export default async function Home() {
-	const projects = await ProjectService.getProjects();
 	return (
 		<div className="mt-14 sm:mt-28">
 			<Container>
@@ -29,12 +26,13 @@ export default async function Home() {
 				</div>
 			</Container>
 			<div className="mt-16">
-				<Photos />
+				<HorizontalImageList />
 			</div>
 			<Container className="mt-16 sm:mt-24">
 				<div className="grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-y-20">
 					<div>
-						<ProjectList projects={projects} />
+						{/* @ts-expect-error Server Component */}
+						<ProjectList />
 					</div>
 					<div className="space-y-8 md:pl-24">
 						<Resume />

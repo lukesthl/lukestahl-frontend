@@ -4,9 +4,9 @@ import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/s
 import clsx from "clsx";
 import Image from "next/image";
 import React, { Fragment, useEffect, useState } from "react";
-import { IImage } from "../lib/image.service";
-import { Container } from "./container";
-import { translate } from "./translation";
+import { IImage } from "../../services/image.service";
+import { Container } from "../layout/container";
+import { translate } from "../translation";
 
 type SortSelection = "newest" | "oldest";
 
@@ -52,7 +52,7 @@ const shuffle = <T,>(a: T[]) => {
 	return a;
 };
 
-export const PhotoGallery = ({ images: allImages }: { images: IImage[] }) => {
+export const ImageGallery = ({ images: allImages }: { images: IImage[] }) => {
 	const [selectedSorter, setSelectedSorter] = useState(options[0]);
 	useEffect(() => {
 		setImages(selectedSorter.onSelect(allImages));

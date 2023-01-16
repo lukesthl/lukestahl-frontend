@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SimpleLayout } from "../../src/components/layout/simplelayout";
 import { GitHubIcon } from "../../src/components/social/links";
-import { translate } from "../../src/components/translation";
+import { translate } from "../../src/components/utils/translation";
 import { ProjectService } from "../../src/services/project.service";
 
 export default async function Projects() {

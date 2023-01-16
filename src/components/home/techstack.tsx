@@ -13,7 +13,7 @@ import NodeJSLogo from "../../../public/assets/logos/nodejs-icon.svg";
 import ReactLogo from "../../../public/assets/logos/react.svg";
 import TailwindCSSLogo from "../../../public/assets/logos/tailwindcss-icon.svg";
 import TypescriptLogo from "../../../public/assets/logos/typescript-icon-round.svg";
-import { translate } from "../translation";
+import { translate } from "../utils/translation";
 import "react-tooltip/dist/react-tooltip.css";
 
 const stack = [

@@ -1,5 +1,5 @@
 import React from "react";
-import { translate } from "../translation";
+import { translate } from "../utils/translation";
 import marcapoLogo from "../../../public/assets/logos/marcapo.jpeg";
 import Image from "next/image";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";

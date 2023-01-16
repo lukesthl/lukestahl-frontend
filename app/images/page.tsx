@@ -2,7 +2,7 @@ import Image from "next/image";
 import AvatarPicture from "../../public/assets/images/darkmode/image-1.jpg";
 import { Container } from "../../src/components/layout/container";
 import { ImageGallery } from "../../src/components/images/image.gallery";
-import { translate } from "../../src/components/translation";
+import { translate } from "../../src/components/utils/translation";
 import { ImageService } from "../../src/services/image.service";
 
 export default async function Images() {

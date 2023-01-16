@@ -2,7 +2,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 import Link from "next/link";
 import React, { Fragment } from "react";
-import { translate } from "../translation";
+import { translate } from "../utils/translation";
 import { navItems } from "./navitems";
 import { Popover, Transition } from "@headlessui/react";
 

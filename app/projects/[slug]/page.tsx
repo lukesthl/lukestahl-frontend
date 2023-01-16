@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Container } from "../../../src/components/layout/container";
-import { GoBackButton } from "../../../src/components/goback.button";
+import { GoBackButton } from "../../../src/components/ui/goback.button";
 import { ProjectService } from "../../../src/services/project.service";
 
 export default async function Projects({ params }: { params: { slug: string } }) {

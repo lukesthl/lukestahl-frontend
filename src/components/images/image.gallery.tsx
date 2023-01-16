@@ -6,7 +6,7 @@ import Image from "next/image";
 import React, { Fragment, useEffect, useState } from "react";
 import { IImage } from "../../services/image.service";
 import { Container } from "../layout/container";
-import { translate } from "../translation";
+import { translate } from "../utils/translation";
 
 type SortSelection = "newest" | "oldest";
 

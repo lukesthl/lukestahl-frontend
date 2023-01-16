@@ -1,5 +1,5 @@
 import { Breakpoints } from "../src/components/utils/breakpoints";
-import { Footer } from "../src/components/footer";
+import { Footer } from "../src/components/layout/footer";
 import { Header } from "../src/components/header/header";
 import "./globals.css";
 

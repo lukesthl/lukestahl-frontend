@@ -1,15 +1,15 @@
 "use client";
 import clsx from "clsx";
-import image1 from "../../public/assets/images/whitemode/image-1.jpg";
-import image2 from "../../public/assets/images/whitemode/image-2.jpg";
-import image3 from "../../public/assets/images/whitemode/image-3.jpg";
-import image4 from "../../public/assets/images/whitemode/image-4.jpg";
-import image5 from "../../public/assets/images/whitemode/image-5.jpg";
-import image1DarkMode from "../../public/assets/images/darkmode/image-1.jpg";
-import image2DarkMode from "../../public/assets/images/darkmode/image-2.jpg";
-import image3DarkMode from "../../public/assets/images/darkmode/image-3.jpg";
-import image4DarkMode from "../../public/assets/images/darkmode/image-4.jpg";
-import image5DarkMode from "../../public/assets/images/darkmode/image-5.jpg";
+import image1 from "../../../public/assets/images/whitemode/image-1.jpg";
+import image2 from "../../../public/assets/images/whitemode/image-2.jpg";
+import image3 from "../../../public/assets/images/whitemode/image-3.jpg";
+import image4 from "../../../public/assets/images/whitemode/image-4.jpg";
+import image5 from "../../../public/assets/images/whitemode/image-5.jpg";
+import image1DarkMode from "../../../public/assets/images/darkmode/image-1.jpg";
+import image2DarkMode from "../../../public/assets/images/darkmode/image-2.jpg";
+import image3DarkMode from "../../../public/assets/images/darkmode/image-3.jpg";
+import image4DarkMode from "../../../public/assets/images/darkmode/image-4.jpg";
+import image5DarkMode from "../../../public/assets/images/darkmode/image-5.jpg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -59,7 +59,7 @@ export const imagesDarkMode = [
 	},
 ];
 
-export const Photos = () => {
+export const HorizontalImageList = () => {
 	const [images, setImages] = useState<typeof imagesWhiteMode>([]);
 	useEffect(() => {
 		const updateImages = () => {

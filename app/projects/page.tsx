@@ -1,7 +1,6 @@
 import { ChevronRightIcon, LinkIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
-import { Container } from "../../src/components/container";
 import { SimpleLayout } from "../../src/components/simplelayout";
 import { GitHubIcon } from "../../src/components/social/links";
 import { translate } from "../../src/components/translation";

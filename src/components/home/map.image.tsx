@@ -26,7 +26,7 @@ export const MapImage = () => {
 		<div className="absolute inset-0 h-full w-full object-cover bg-zinc-100 dark:bg-zinc-800"></div>
 	) : (
 		<Image
-			src={`/map/snapshot?theme=${theme}`}
+			src={`/map/snapshot.png?theme=${theme}`}
 			className="h-full w-full bg-black object-cover object-center"
 			alt="TODO"
 			width={680}

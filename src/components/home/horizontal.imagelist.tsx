@@ -12,6 +12,7 @@ import image4DarkMode from "../../../public/assets/images/darkmode/image-4.jpg";
 import image5DarkMode from "../../../public/assets/images/darkmode/image-5.jpg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useTheme } from "../utils/usetheme";
 
 export const imagesWhiteMode = [
 	{
@@ -63,23 +64,11 @@ export const HorizontalImageList = () => {
 	const [images, setImages] = useState<typeof imagesWhiteMode>(
 		Array.from(imagesWhiteMode).fill({ alt: "", src: undefined as any })
 	);
-	useEffect(() => {
-		const updateImages = () => {
-			const themeStorage = typeof window !== "undefined" && window.localStorage.getItem("theme");
-			const theme = themeStorage ? themeStorage : "light";
-			setImages(theme === "dark" ? imagesDarkMode : imagesWhiteMode);
-		};
-		window.addEventListener("storage", () => {
-			updateImages();
-		});
-		updateImages();
+	const { theme } = useTheme();
 
-		return () => {
-			window.removeEventListener("storage", () => {
-				updateImages();
-			});
-		};
-	}, []);
+	useEffect(() => {
+		setImages(theme === "dark" ? imagesDarkMode : imagesWhiteMode);
+	}, [theme]);
 
 	return (
 		<div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">

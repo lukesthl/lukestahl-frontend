@@ -16,7 +16,7 @@ export default function About() {
 					{/* TODO cleaner without duplicating image and links */}
 					<div className="block md:hidden">
 						<div className="mt-6 aspect-[9/10] w-full flex-none rotate-1 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl">
-							<Image src={AvatarPicture} alt="me" className="object-cover" fill />
+							<Image src={AvatarPicture} alt="me" className="object-cover" fill placeholder="blur" />
 						</div>
 						<div className="mt-6 space-y-1">
 							{SocialLinks.map(socialLink => (

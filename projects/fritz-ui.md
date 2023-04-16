@@ -1,14 +1,15 @@
 ---
 author: 'Luke Stahl'
-date: '2022-09-04'
-title: 'Project 2'
-description: 'This is sample content. The section above is called Frontmatter where we can add post metadata'
+date: '2023-04-10'
+title: 'Fritz-UI - Moderne Ansicht für die Fritz!Box'
+description: 'Dashboard mit Statistiken für Netzwerk und Smarthome Geräte der Fritz!Box.'
 bannerImage: "/assets/projects/testproject.jpg"
-icon: "/assets/logos/nextjs-icon.svg"
+icon: "/assets/projects/fritz-ui/logo.png"
 links:
-    - https://google.com/
+    - https://github.com/lukesthl/fritz-ui
 tags:
-    - example
+    - Frontend
+    - Nextjs
 ---
 
 ## This is an example blog post

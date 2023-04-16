@@ -2,6 +2,9 @@ import Image from "next/image";
 import { Container } from "../../../src/components/layout/container";
 import { GoBackButton } from "../../../src/components/ui/goback.button";
 import { ProjectService } from "../../../src/services/project.service";
+import { Suspense } from "react";
+
+// export const dynamic = "force-static";
 
 export default async function Projects({ params }: { params: { slug: string } }) {
 	const project = await ProjectService.getProjectByFileName(`${params.slug}.md`);
@@ -10,7 +13,9 @@ export default async function Projects({ params }: { params: { slug: string } })
 			<Container className="dark:text-zinc-200">
 				<div className="relative">
 					<div className="left-0 top-0 xl:absolute">
-						<GoBackButton />
+						<Suspense fallback={<></>}>
+							<GoBackButton />
+						</Suspense>
 					</div>
 					<article className="mx-auto mt-6 max-w-2xl xl:mt-0">
 						<header className="space-y-6">

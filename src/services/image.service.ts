@@ -1,7 +1,7 @@
 import glob from "fast-glob";
 import { readFileSync } from "fs";
 import path from "path";
-const Exifr = require("exifr");
+import Exifr from "exifr/dist/lite.esm.mjs";
 
 export class ImageService {
 	public static getImageByPath = async (path: string): Promise<IImage> => {

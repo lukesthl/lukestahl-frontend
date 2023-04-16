@@ -13,7 +13,7 @@ type SortSelection = "newest" | "oldest";
 const options: {
 	key: number;
 	name: SortSelection;
-	icon: (props: React.ComponentProps<"svg">) => JSX.Element;
+	icon: (props: React.ComponentProps<typeof ChevronDownIcon>) => JSX.Element;
 	onSelect: (images: IImage[]) => IImage[];
 }[] = [
 	{

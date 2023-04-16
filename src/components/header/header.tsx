@@ -18,7 +18,7 @@ export const Header = () => {
 					</div>
 				)}
 				<div className="flex flex-1 justify-end md:justify-center">
-					<DesktopNavigation className="hidden md:block" />
+					<DesktopNavigation currentPath={pathname} className="hidden md:block" />
 					<MobileNavigation className="md:hidden" />
 				</div>
 				<div>

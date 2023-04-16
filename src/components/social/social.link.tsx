@@ -1,13 +1,14 @@
 import clsx from "clsx";
-import Link, { LinkProps } from "next/link";
+import { Route } from "next";
+import Link from "next/link";
 import React from "react";
 
 export const SocialLink = ({
 	icon: Icon,
 	title,
 	...props
-}: LinkProps & { icon: React.FC<React.ComponentProps<"svg">>; title?: string }) => (
-	<Link className="group -m-1 flex items-center p-1" {...props}>
+}: React.ComponentProps<typeof Link> & { icon: React.FC<React.ComponentProps<"svg">>; title?: string }) => (
+	<Link className="group -m-1 flex items-center p-1" {...props} href={props.href.toString() as Route}>
 		<Icon
 			className={clsx(
 				"fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300",

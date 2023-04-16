@@ -1,15 +1,16 @@
 ---
 author: 'Luke Stahl'
-date: '2022-09-05'
-title: 'Luke Stahl Landingpage'
-description: 'Eine persönliche Landingpage mit Portfolio um NextJS 13 zu testen'
+date: '2023-01-15'
+title: 'Motion Detector'
+description: "Eine App, die Bewegungen aufzeichnet, um bestimmte Aktionen auszulösen."
 bannerImage: "/assets/projects/testproject.jpg"
-icon: "/assets/logos/nextjs-icon.svg"
+icon: "/assets/projects/motion-detector/logo.png"
 links:
-    - https://github.com/lukesthl/lukestahl-frontend
+    - https://github.com/lukesthl/motion-detector
 tags:
-    - Web Entwicklung
-    - Frontend 
+    - Svelte
+    - Tauri
+    - Bun
 ---
 
 # Welcome to StackEdit!

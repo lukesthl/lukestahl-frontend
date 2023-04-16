@@ -1,4 +1,10 @@
-export const navItems = [
+import { Route } from "next";
+
+export const navItems: {
+	href: Route;
+	key: string;
+	footerOnly?: boolean;
+}[] = [
 	{
 		href: "/about",
 		key: "navigation.about",
@@ -12,7 +18,7 @@ export const navItems = [
 		key: "navigation.photos",
 	},
 	{
-		href: "/contact",
+		href: "mailto:luke@lukestahl.de" as Route,
 		key: "navigation.contact",
 	},
 	{

@@ -1,7 +1,7 @@
 ---
 author: 'Luke Stahl'
 date: '2022-09-05'
-title: 'Luke Stahl Landingpage'
+title: 'testproject copy'
 description: 'Eine persönliche Landingpage mit Portfolio um NextJS 13 zu testen'
 bannerImage: "/assets/projects/testproject.jpg"
 icon: "/assets/logos/nextjs-icon.svg"

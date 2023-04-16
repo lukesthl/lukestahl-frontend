@@ -57,7 +57,7 @@ export const Resume = () => (
 					<ResumeItem resumeItem={resumeItem} key={resumeItem.key} />
 				))}
 		</div>
-		<div className="mx-2 mt-6">
+		{/* <div className="mx-2 mt-6">
 			<button className="group relative w-full rounded-md bg-zinc-100/75 py-3 text-sm font-semibold dark:bg-zinc-800/75 dark:text-zinc-200">
 				<div className="relative z-10 flex items-center justify-center gap-2">
 					{translate("home.resume.download")}
@@ -65,11 +65,11 @@ export const Resume = () => (
 				</div>
 				<div className="absolute inset-0 z-0 scale-0 rounded-md bg-zinc-200/50 opacity-0 transition duration-200 group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-700/30" />
 			</button>
-		</div>
+		</div> */}
 	</div>
 );
 
-const ResumeItem = ({ resumeItem }: { resumeItem: typeof resume[0] }) => (
+const ResumeItem = ({ resumeItem }: { resumeItem: (typeof resume)[0] }) => (
 	<div className="flex items-center gap-4">
 		<div className="rounded-full bg-white/90 p-[6px] shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
 			<Image src={resumeItem.logo} className="h-8 w-8 rounded-full" alt={resumeItem.company} />

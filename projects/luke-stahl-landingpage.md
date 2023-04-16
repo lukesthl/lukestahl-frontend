@@ -1,15 +1,16 @@
 ---
 author: 'Luke Stahl'
-date: '2022-09-05'
-title: 'Luke Stahl Landingpage'
-description: 'Eine persönliche Landingpage mit Portfolio um NextJS 13 zu testen'
+date: '2023-04-16'
+title: 'Meine Portfolio Website'
+description: 'Eine persönliche Landingpage für meine Projekte und Bilder.'
 bannerImage: "/assets/projects/testproject.jpg"
-icon: "/assets/logos/nextjs-icon.svg"
+icon: "/assets/me.png"
 links:
     - https://github.com/lukesthl/lukestahl-frontend
 tags:
-    - Web Entwicklung
     - Frontend 
+    - Nextjs
+    - React Server Components
 ---
 
 # Welcome to StackEdit!

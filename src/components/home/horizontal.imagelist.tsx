@@ -60,18 +60,25 @@ export const imagesDarkMode = [
 ];
 
 export const HorizontalImageList = () => {
-	const [images, setImages] = useState<typeof imagesWhiteMode>([]);
+	const [images, setImages] = useState<typeof imagesWhiteMode>(
+		Array.from(imagesWhiteMode).fill({ alt: "", src: undefined as any })
+	);
 	useEffect(() => {
 		const updateImages = () => {
-			const darkModeStorageValue = typeof window !== "undefined" && window.localStorage.getItem("isDarkMode");
-			const isDarkMode = darkModeStorageValue ? JSON.parse(darkModeStorageValue) : false;
-			setImages(isDarkMode ? imagesDarkMode : imagesWhiteMode);
+			const themeStorage = typeof window !== "undefined" && window.localStorage.getItem("theme");
+			const theme = themeStorage ? themeStorage : "light";
+			setImages(theme === "dark" ? imagesDarkMode : imagesWhiteMode);
 		};
 		window.addEventListener("storage", () => {
-			console.log("update storage");
 			updateImages();
 		});
 		updateImages();
+
+		return () => {
+			window.removeEventListener("storage", () => {
+				updateImages();
+			});
+		};
 	}, []);
 
 	return (
@@ -87,12 +94,18 @@ export const HorizontalImageList = () => {
 						}
 					)}
 				>
-					<Image
-						src={image.src}
-						alt={image.alt}
-						sizes="(min-width: 640px) 18rem, 11rem"
-						className="absolute inset-0 h-full w-full object-cover"
-					/>
+					{image.src ? (
+						<Image
+							src={image.src}
+							alt={image.alt}
+							placeholder="blur"
+							priority
+							sizes="(min-width: 640px) 18rem, 11rem"
+							className="absolute inset-0 h-full w-full object-cover"
+						/>
+					) : (
+						<div className="absolute inset-0 h-full w-full object-cover bg-zinc-100 dark:bg-zinc-800"></div>
+					)}
 				</div>
 			))}
 		</div>

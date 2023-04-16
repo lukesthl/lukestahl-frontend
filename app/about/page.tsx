@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "../../src/components/layout/container";
 import { translate } from "../../src/components/utils/translation";
-import AvatarPicture from "../../public/assets/images/darkmode/image-1.jpg";
+import AvatarPicture from "../../public/assets/me.png";
 import { SocialLinks } from "../../src/components/social/links";
 import { SocialLink } from "../../src/components/social/social.link";
 
@@ -13,14 +13,14 @@ export default function About() {
 					<h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
 						{translate("about.title")}
 					</h1>
-					{/* TODO cleaner without doubling image and links */}
+					{/* TODO cleaner without duplicating image and links */}
 					<div className="block md:hidden">
-						<div className="mt-6  aspect-[9/10] w-full flex-none rotate-1 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl">
-							<Image src={AvatarPicture} alt="me" />
+						<div className="mt-6 aspect-[9/10] w-full flex-none rotate-1 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl">
+							<Image src={AvatarPicture} alt="me" className="object-cover" fill />
 						</div>
 						<div className="mt-6 space-y-1">
 							{SocialLinks.map(socialLink => (
-								<SocialLink {...socialLink} key={socialLink.href} />
+								<SocialLink target="_blank" {...socialLink} key={socialLink.href.toString()} />
 							))}
 						</div>
 					</div>
@@ -28,11 +28,11 @@ export default function About() {
 				</div>
 				<div className="hidden md:block">
 					<div className="aspect-[9/10] w-full flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl">
-						<Image src={AvatarPicture} alt="me" />
+						<Image src={AvatarPicture} alt="me" className="object-cover" fill />
 					</div>
 					<div className="mt-6 space-y-1">
 						{SocialLinks.map(socialLink => (
-							<SocialLink {...socialLink} key={socialLink.href} />
+							<SocialLink target="_blank" {...socialLink} key={socialLink.href.toString()} />
 						))}
 					</div>
 				</div>

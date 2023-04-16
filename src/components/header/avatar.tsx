@@ -10,7 +10,7 @@ export const Avatar = ({ size = "small" }: { size?: "small" | "large" }) => (
 				<Image
 					src={AvatarPicture}
 					alt="Bild von Luke Stahl"
-					className={clsx("scale-150 rounded-full object-cover pt-1", {
+					className={clsx("scale-150 hover:scale-125 ease-in-out duration-300 transition rounded-full object-cover", {
 						"h-9 w-9": size === "small",
 						"h-16 w-16": size === "large",
 					})}

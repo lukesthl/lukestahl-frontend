@@ -7,6 +7,7 @@ import { SocialLinks } from "../src/components/social/links";
 import { SocialLink } from "../src/components/social/social.link";
 import { TechStack } from "../src/components/home/techstack";
 import { translate } from "../src/components/utils/translation";
+import { LocationMap } from "../src/components/home/location.map";
 
 export default async function Home() {
 	return (
@@ -20,7 +21,7 @@ export default async function Home() {
 					<p className="mt-6 text-zinc-600 dark:text-zinc-400">{translate("home.description")}</p>
 					<div className="mt-6 flex gap-7">
 						{SocialLinks.map(({ title: _, ...socialLink }) => (
-							<SocialLink {...socialLink} key={socialLink.href} />
+							<SocialLink target="_blank" {...socialLink} key={socialLink.href.toString()} />
 						))}
 					</div>
 				</div>
@@ -37,6 +38,7 @@ export default async function Home() {
 					<div className="space-y-8 md:pl-24">
 						<Resume />
 						<TechStack />
+						<LocationMap />
 					</div>
 				</div>
 			</Container>

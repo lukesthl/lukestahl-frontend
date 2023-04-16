@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
 				userAgent: "*",
 			},
 		],
-		sitemap: `${process.env.VERCEL_ENV || process.env.PUBLIC_URL}/sitemap.xml`,
-		host: `${process.env.VERCEL_ENV || process.env.PUBLIC_URL}`,
+		sitemap: `${process.env.VERCEL_URL || process.env.PUBLIC_URL}/sitemap.xml`,
+		host: `${process.env.VERCEL_URL || process.env.PUBLIC_URL}`,
 	};
 }

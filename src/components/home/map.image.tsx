@@ -1,29 +1,11 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useTheme } from "../utils/usetheme";
 
 export const MapImage = () => {
-	const [theme, setTheme] = useState<string | null>(null);
-
-	useEffect(() => {
-		const updateImages = () => {
-			const themeStorage = typeof window !== "undefined" && window.localStorage.getItem("theme");
-			const theme = themeStorage ? themeStorage : "light";
-			setTheme(theme);
-		};
-		window.addEventListener("storage", () => {
-			updateImages();
-		});
-		updateImages();
-
-		return () => {
-			window.removeEventListener("storage", () => {
-				updateImages();
-			});
-		};
-	}, []);
+	const { theme } = useTheme();
 	return !theme ? (
-		<div className="absolute inset-0 h-full w-full object-cover bg-zinc-100 dark:bg-zinc-800"></div>
+		<div className="w-full h-[215px] bg-zinc-100 dark:bg-zinc-800"></div>
 	) : (
 		<Image
 			src={`/map/snapshot.png?theme=${theme}`}

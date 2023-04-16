@@ -27,6 +27,7 @@ export const MapImage = () => {
 	) : (
 		<Image
 			src={`/map/snapshot.png?theme=${theme}`}
+			unoptimized
 			className="h-full w-full bg-black object-cover object-center"
 			alt="TODO"
 			width={680}

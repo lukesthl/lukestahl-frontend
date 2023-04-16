@@ -19,7 +19,7 @@ export default async function Images() {
 					</div>
 					<div className="col-span-2">
 						<div className="aspect-square w-full rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl">
-							<Image src={AvatarPicture} alt="me" />
+							<Image src={AvatarPicture} alt="me" placeholder="blur" />
 						</div>
 					</div>
 				</div>

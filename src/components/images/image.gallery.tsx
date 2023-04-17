@@ -127,7 +127,7 @@ export const ImageGallery = ({ images: allImages }: { images: IImage[] }) => {
 							"relative aspect-[9/10] w-full overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl"
 						)}
 					>
-						<Image src={image.url} placeholder="blur" alt={"todo"} fill className="object-cover" />
+						<Image src={image.url} alt={"todo"} fill className="object-cover" />
 						<pre className="">{JSON.stringify(image.exifData.CreateDate)}</pre>
 					</div>
 				))}

@@ -24,7 +24,9 @@ export default function About() {
 							))}
 						</div>
 					</div>
-					<p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">{translate("about.description")}</p>
+					<p className="mt-6 text-base text-zinc-600 dark:text-zinc-400 whitespace-pre-wrap">
+						{translate("about.description")}
+					</p>
 				</div>
 				<div className="hidden md:block">
 					<div className="aspect-[9/10] w-full flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl">

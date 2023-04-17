@@ -10,7 +10,7 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
 
 	return (
 		<Container className="mt-16">
-			<p>Oh no, something went wrong... maybe refresh?</p>
+			<p>Oh nein, da ist etwas schief gelaufen... maybe refresh?</p>
 		</Container>
 	);
 }

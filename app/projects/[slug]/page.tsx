@@ -4,8 +4,6 @@ import { GoBackButton } from "../../../src/components/ui/goback.button";
 import { ProjectService } from "../../../src/services/project.service";
 import { Suspense } from "react";
 
-// export const dynamic = "force-static";
-
 export default async function Projects({ params }: { params: { slug: string } }) {
 	const project = await ProjectService.getProjectByFileName(`${params.slug}.md`);
 	return (
@@ -44,7 +42,7 @@ export default async function Projects({ params }: { params: { slug: string } })
 							</div>
 							<p className="text-base text-zinc-600 dark:text-zinc-400">{project.meta.description}</p>
 						</header>
-						<div className="prose mt-8 dark:prose-invert" dangerouslySetInnerHTML={{ __html: project.content }} />
+						<div className="prose mt-4 dark:prose-invert" dangerouslySetInnerHTML={{ __html: project.content }} />
 					</article>
 				</div>
 			</Container>

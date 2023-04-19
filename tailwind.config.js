@@ -18,6 +18,15 @@ module.exports = {
 					900: "#1e3a8a",
 				},
 			},
+			typography: theme => ({
+				DEFAULT: {
+					css: {
+						h2: {
+							marginTop: theme("spacing.4"),
+						},
+					},
+				},
+			}),
 		},
 	},
 	plugins: [require("@tailwindcss/typography")],

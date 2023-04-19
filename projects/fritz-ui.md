@@ -16,7 +16,6 @@ tags:
 Nachdem ich immer wieder mit dem langsamen UI der Fritz!Box zu tun hatte, um verschiedene Statistiken anzuschauen. Hatte ich mir gedacht, dass es es doch viel besser mit einer Nextjs App gebaut ist. So kam die Idee alle Statistiken des Routers und der Smart Home-Geräte anzuzeigen.
 
 ## Tech Stack
-###
 
 - [Nextjs](https://nextjs.org/)
 - [tRPC](https://trpc.io/)

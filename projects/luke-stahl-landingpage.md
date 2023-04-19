@@ -1,7 +1,7 @@
 ---
 author: 'Luke Stahl'
 date: '2023-04-16'
-title: 'Meine Portfolio Website'
+title: 'Meine Portfolio Website - lukestahl.de'
 description: 'Eine persönliche Landingpage für meine Projekte und Bilder.'
 bannerImage: "/assets/projects/testproject.jpg"
 icon: "/assets/me.png"

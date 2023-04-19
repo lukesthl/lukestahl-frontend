@@ -5,6 +5,17 @@ import AvatarPicture from "../../public/assets/me.png";
 import { SocialLinks } from "../../src/components/social/links";
 import { SocialLink } from "../../src/components/social/social.link";
 
+const calculateAge = (birthday: string): number => {
+	var currentDate = new Date();
+	var birthDate = new Date(birthday);
+	var age = currentDate.getFullYear() - birthDate.getFullYear();
+	var month = currentDate.getMonth() - birthDate.getMonth();
+	if (month < 0 || (month === 0 && currentDate.getDate() < birthDate.getDate())) {
+		age--;
+	}
+	return age;
+};
+
 export default function About() {
 	return (
 		<Container className="mt-16 md:mt-32">
@@ -25,7 +36,9 @@ export default function About() {
 						</div>
 					</div>
 					<p className="mt-6 text-base text-zinc-600 dark:text-zinc-400 whitespace-pre-wrap">
-						{translate("about.description")}
+						{translate("about.description", {
+							context: { age: calculateAge("2002-08-10") },
+						})}
 					</p>
 				</div>
 				<div className="hidden md:block">

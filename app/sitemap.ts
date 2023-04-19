@@ -8,9 +8,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		lastModified: new Date().toISOString().split("T")[0],
 	}));
 	const projects = await ProjectService.getProjects();
-	const projectSitemap: MetadataRoute.Sitemap = projects.map(project => ({
-		url: `${process.env.VERCEL_URL || process.env.PUBLIC_URL}/projects/${project.slug}`,
-		lastModified: new Date(project.meta.date).toISOString().split("T")[0],
-	}));
+	const projectSitemap: MetadataRoute.Sitemap = projects
+		.filter(project => !!project.content)
+		.map(project => ({
+			url: `${process.env.VERCEL_URL || process.env.PUBLIC_URL}/projects/${project.slug}`,
+			lastModified: new Date(project.meta.date).toISOString().split("T")[0],
+		}));
 	return [...defaultSitemap, ...projectSitemap];
 }

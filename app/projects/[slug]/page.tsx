@@ -3,9 +3,13 @@ import { Container } from "../../../src/components/layout/container";
 import { GoBackButton } from "../../../src/components/ui/goback.button";
 import { ProjectService } from "../../../src/services/project.service";
 import { Suspense } from "react";
+import { notFound } from "next/navigation";
 
 export default async function Projects({ params }: { params: { slug: string } }) {
 	const project = await ProjectService.getProjectByFileName(`${params.slug}.md`);
+	if (!project.content) {
+		notFound();
+	}
 	return (
 		<div key={project.slug} className="mt-16 md:mt-28">
 			<Container className="dark:text-zinc-200">
@@ -26,23 +30,25 @@ export default async function Projects({ params }: { params: { slug: string } })
 							<h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
 								{project.meta.title}
 							</h1>
-							<div className="relative aspect-video">
-								<Image
-									src={project.meta.bannerImage}
-									alt="alt"
-									fill
-									className="rounded-2xl object-cover"
-									{...(project.meta.bannerImageBlur
-										? {
-												placeholder: "blur",
-												blurDataURL: project.meta.bannerImageBlur,
-										  }
-										: {})}
-								/>
-							</div>
 							<p className="text-base text-zinc-600 dark:text-zinc-400">{project.meta.description}</p>
+							<div className="relative aspect-video">
+								{project.meta.bannerImage && (
+									<Image
+										src={project.meta.bannerImage}
+										alt="alt"
+										fill
+										className="rounded-2xl object-cover"
+										{...(project.meta.bannerImageBlur
+											? {
+													placeholder: "blur",
+													blurDataURL: project.meta.bannerImageBlur,
+											  }
+											: {})}
+									/>
+								)}
+							</div>
 						</header>
-						<div className="prose mt-4 dark:prose-invert" dangerouslySetInnerHTML={{ __html: project.content }} />
+						<div className="prose mt-8 dark:prose-invert" dangerouslySetInnerHTML={{ __html: project.content }} />
 					</article>
 				</div>
 			</Container>
@@ -53,7 +59,9 @@ export default async function Projects({ params }: { params: { slug: string } })
 export async function generateStaticParams() {
 	const projects = await ProjectService.getProjects();
 
-	return projects.map(post => ({
-		slug: post.slug,
-	}));
+	return projects
+		.filter(project => !!project.content)
+		.map(post => ({
+			slug: post.slug,
+		}));
 }

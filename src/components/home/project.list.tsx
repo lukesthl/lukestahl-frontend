@@ -5,7 +5,7 @@ import { IProject, ProjectService } from "../../services/project.service";
 import { translate } from "../utils/translation";
 
 export const ProjectList = async () => {
-	const projects = await ProjectService.getProjects();
+	const projects = await ProjectService.getProjects({ filter: project => !!project.content, max: 5 });
 	return (
 		<div className="flex flex-col gap-12">
 			{projects.map(project => (

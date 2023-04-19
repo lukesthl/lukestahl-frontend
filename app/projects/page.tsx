@@ -6,6 +6,8 @@ import { translate } from "../../src/components/utils/translation";
 import { ProjectService } from "../../src/services/project.service";
 import { GitHubIcon } from "../../src/components/icons/github.icon";
 import { Route } from "next";
+import { IProject } from "../../src/services/project.service";
+import clsx from "clsx";
 
 export default async function Projects() {
 	const projects = await ProjectService.getProjects();
@@ -15,29 +17,23 @@ export default async function Projects() {
 				{projects.map(project => (
 					<div key={project.slug} className="flex flex-col justify-between">
 						<div>
-							<Link href={`/projects/${encodeURIComponent(project.slug)}`} className="group transition">
-								<div className="flex">
-									<div className="rounded-full bg-white/90 p-[0.35rem] shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-										<div className="relative h-8 w-8">
-											<Image src={project.meta.icon} fill className="object-cover rounded-full" alt="alt" />
-										</div>
-									</div>
-								</div>
-								<h2 className="mt-4 font-semibold transition dark:text-zinc-100 dark:group-hover:text-zinc-300 group-hover:text-zinc-500">
-									{project.meta.title}
-								</h2>
-								<p className="mt-2 text-zinc-600 transition dark:text-zinc-400 dark:group-hover:text-zinc-500 group-hover:text-zinc-400">
-									{project.meta.description}
-								</p>
-							</Link>
+							{project.content ? (
+								<Link href={`/projects/${encodeURIComponent(project.slug)}`} className="group transition">
+									<ProjectContent project={project} />
+								</Link>
+							) : (
+								<ProjectContent project={project} />
+							)}
 						</div>
 						<div className="mt-3 flex items-center justify-between">
-							<Link href={`/projects/${encodeURIComponent(project.slug)}`}>
-								<div className="inline-flex items-center text-sm font-medium hover:text-primary-500/50 transition text-primary-500">
-									<span>{translate("home.projects.readmore")}</span>
-									<ChevronRightIcon className="h-4 w-4 stroke-2" />
-								</div>
-							</Link>
+							{project.content && (
+								<Link href={`/projects/${encodeURIComponent(project.slug)}`}>
+									<div className="inline-flex items-center text-sm font-medium hover:text-primary-500/50 transition text-primary-500">
+										<span>{translate("home.projects.readmore")}</span>
+										<ChevronRightIcon className="h-4 w-4 stroke-2" />
+									</div>
+								</Link>
+							)}
 							{project.meta.links.map(link => (
 								<Link
 									href={link as Route}
@@ -61,3 +57,29 @@ export default async function Projects() {
 		</SimpleLayout>
 	);
 }
+
+const ProjectContent = ({ project }: { project: IProject }) => (
+	<>
+		<div className="flex">
+			<div className="rounded-full bg-white/90 p-[0.35rem] shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+				<div className="relative h-8 w-8">
+					<Image src={project.meta.icon} fill className="object-cover rounded-full" alt="alt" />
+				</div>
+			</div>
+		</div>
+		<h2
+			className={clsx("mt-4 font-semibold transition dark:text-zinc-100", {
+				"dark:group-hover:text-zinc-300 group-hover:text-zinc-500": !!project.content,
+			})}
+		>
+			{project.meta.title}
+		</h2>
+		<p
+			className={clsx("mt-2 text-zinc-600 transition dark:text-zinc-400", {
+				"dark:group-hover:text-zinc-500 group-hover:text-zinc-400": !!project.content,
+			})}
+		>
+			{project.meta.description}
+		</p>
+	</>
+);

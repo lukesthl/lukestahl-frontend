@@ -134,6 +134,8 @@ export const ImageGallery = ({ images: allImages }: { images: IImage[] }) => {
 							blurDataURL={image.blurUrl}
 							placeholder="blur"
 							alt={"todo"}
+							quality={30}
+							sizes="(min-width: 640px) 18rem, 11rem"
 							fill
 							className="object-cover"
 						/>

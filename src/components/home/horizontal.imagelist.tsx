@@ -88,7 +88,7 @@ export const HorizontalImageList = () => {
 							src={image.src}
 							alt={image.alt}
 							placeholder="blur"
-							priority
+							quality={30}
 							sizes="(min-width: 640px) 18rem, 11rem"
 							className="absolute inset-0 h-full w-full object-cover"
 						/>

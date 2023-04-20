@@ -23,8 +23,8 @@ const options: {
 		onSelect: (images: IImage[]) => {
 			const sorted = images.sort(
 				(imageA, imageB) =>
-					new Date(imageB.exifData.CreateDate || Infinity).getTime() -
-					new Date(imageA.exifData.CreateDate || Infinity).getTime()
+					new Date(imageB.exifData?.DateTimeOriginal || 0).getTime() -
+					new Date(imageA.exifData?.DateTimeOriginal || 0).getTime()
 			);
 			return sorted;
 		},
@@ -36,8 +36,8 @@ const options: {
 		onSelect: (images: IImage[]) => {
 			const sorted = images.sort(
 				(imageA, imageB) =>
-					new Date(imageA.exifData.CreateDate || Infinity).getTime() -
-					new Date(imageB.exifData.CreateDate || Infinity).getTime()
+					new Date(imageA.exifData?.DateTimeOriginal || 0).getTime() -
+					new Date(imageB.exifData?.DateTimeOriginal || 0).getTime()
 			);
 			return sorted;
 		},
@@ -53,28 +53,30 @@ const shuffle = <T,>(a: T[]) => {
 };
 
 export const ImageGallery = ({ images: allImages }: { images: IImage[] }) => {
-	const [selectedSorter, setSelectedSorter] = useState(options[0]);
-	useEffect(() => {
-		setImages(selectedSorter.onSelect(allImages));
-	}, [allImages, selectedSorter]);
-
+	const [selectedSortingOption, setSelectedSortingOption] = useState(options[0]);
 	const [images, setImages] = useState(allImages);
+
+	useEffect(() => {
+		const newImages = selectedSortingOption.onSelect(allImages);
+		setImages([...newImages]);
+	}, [allImages, selectedSortingOption]);
+
 	return (
 		<div>
 			<Container>
 				<div className="w-44">
 					<Listbox
-						value={selectedSorter}
+						value={selectedSortingOption}
 						onChange={value => {
 							setImages(value.onSelect(images));
-							setSelectedSorter(value);
+							setSelectedSortingOption(value);
 						}}
 					>
 						<div className="relative mt-1">
 							<Listbox.Button className="text-zinc800 relative flex w-full cursor-default rounded-lg bg-white/90 bg-white px-3 py-2 pl-3 pr-10 text-left text-sm font-medium shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur focus:outline-none focus-visible:border-zinc-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-300 dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 sm:text-sm">
-								<span className="block truncate">{translate(`photos.sorter.${selectedSorter.name}`)}</span>
+								<span className="block truncate">{translate(`photos.sorter.${selectedSortingOption.name}`)}</span>
 								<span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-									{selectedSorter.icon({
+									{selectedSortingOption.icon({
 										className: "h-5 w-5 text-gray-400",
 										"aria-hidden": "true",
 									})}
@@ -127,8 +129,14 @@ export const ImageGallery = ({ images: allImages }: { images: IImage[] }) => {
 							"relative aspect-[9/10] w-full overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl"
 						)}
 					>
-						<Image src={image.url} alt={"todo"} fill className="object-cover" />
-						<pre className="">{JSON.stringify(image.exifData.CreateDate)}</pre>
+						<Image
+							src={image.url}
+							blurDataURL={image.blurUrl}
+							placeholder="blur"
+							alt={"todo"}
+							fill
+							className="object-cover"
+						/>
 					</div>
 				))}
 			</div>

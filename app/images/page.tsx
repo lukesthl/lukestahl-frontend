@@ -19,7 +19,14 @@ export default async function Images() {
 					</div>
 					<div className="col-span-2">
 						<div className="aspect-square w-full rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl">
-							<Image src={MyCamera} alt="my camera" fill className="object-cover" placeholder="blur" />
+							<Image
+								src={MyCamera}
+								sizes="(min-width: 640px) 18rem, 11rem"
+								alt="my camera"
+								fill
+								className="object-cover"
+								placeholder="blur"
+							/>
 						</div>
 					</div>
 				</div>

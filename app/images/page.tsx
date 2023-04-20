@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AvatarPicture from "../../public/assets/images/darkmode/image-1.jpg";
+import MyCamera from "../../public/assets/my-camera.jpeg";
 import { Container } from "../../src/components/layout/container";
 import { ImageGallery } from "../../src/components/images/image.gallery";
 import { translate } from "../../src/components/utils/translation";
@@ -19,7 +19,7 @@ export default async function Images() {
 					</div>
 					<div className="col-span-2">
 						<div className="aspect-square w-full rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl">
-							<Image src={AvatarPicture} alt="me" placeholder="blur" />
+							<Image src={MyCamera} alt="my camera" fill className="object-cover" placeholder="blur" />
 						</div>
 					</div>
 				</div>

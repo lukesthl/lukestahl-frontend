@@ -12,11 +12,7 @@ export const Header = () => {
 	return (
 		<Container>
 			<div className="mt-8 flex gap-4">
-				{!isHomePath && (
-					<div>
-						<Avatar />
-					</div>
-				)}
+				<Avatar visible={!isHomePath} />
 				<div className="flex flex-1 justify-end md:justify-center">
 					<DesktopNavigation currentPath={pathname} className="hidden md:block" />
 					<MobileNavigation className="md:hidden" />

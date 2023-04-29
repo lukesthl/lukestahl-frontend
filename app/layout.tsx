@@ -6,7 +6,7 @@ import { Breakpoints } from "./breakpoints";
 import "./globals.css";
 import { initTheme } from "./theme.script";
 
-const url = new URL(process.env.PUBLIC_URL || "");
+const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);
 
 export const metadata: Metadata = {
 	title: {

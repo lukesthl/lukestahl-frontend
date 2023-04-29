@@ -8,10 +8,11 @@ export const MapImage = () => {
 		<div className="w-full h-[215px] bg-zinc-100 dark:bg-zinc-800"></div>
 	) : (
 		<Image
-			src={`/map/snapshot.png?theme=${theme}`}
+			src={`/map/snapshot.webp?theme=${theme}`}
 			unoptimized
 			className="h-full w-full bg-black object-cover object-center"
 			alt="TODO"
+			sizes="(min-width: 640px) 18rem, 11rem"
 			width={680}
 			height={400}
 		/>

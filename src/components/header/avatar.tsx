@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import AvatarPicture from "../../../public/assets/me.png";
+import AvatarPicture from "../../../public/assets/me-icon.png";
 
 export const Avatar = ({ size = "small", visible = true }: { size?: "small" | "large"; visible?: boolean }) => (
 	<div className="flex">
@@ -19,7 +19,7 @@ export const Avatar = ({ size = "small", visible = true }: { size?: "small" | "l
 						"h-10 w-10": size === "small",
 						"h-16 w-16": size === "large",
 					})}
-					quality={10}
+					quality={40}
 				/>
 			</div>
 		</Link>

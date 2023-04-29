@@ -7,7 +7,16 @@ import "./globals.css";
 import { initTheme } from "./theme.script";
 
 const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);
-
+const images = [
+	{
+		url: `${url.toString()}/og?title=${encodeURIComponent(
+			"Frontend / App Entwickler, Video- und Hobby-Fotograf."
+		)}&description=${encodeURIComponent("Ich bin Luke, Frontend Entwickler für Web und Mobile Apps")}`,
+		width: 1200,
+		height: 630,
+		alt: "Luke Stahl Website",
+	},
+];
 export const metadata: Metadata = {
 	title: {
 		template: "%s | Luke Stahl",
@@ -25,21 +34,14 @@ export const metadata: Metadata = {
 		siteName: "Luke Stahl Website",
 		locale: "de_DE",
 		type: "website",
-		images: [
-			{
-				url: `${url.toString()}/og?title=${encodeURIComponent(
-					"Frontend / App Entwickler, Video- und Hobby-Fotograf."
-				)}&description=${encodeURIComponent("Ich bin Luke, Frontend Entwickler für Web und Mobile Apps")}`,
-				width: 1200,
-				height: 630,
-				alt: "Luke Stahl Website",
-			},
-		],
+		images,
 	},
 	twitter: {
 		title: "Luke Stahl",
 		card: "summary_large_image",
 		creator: "@lukesthl",
+		images,
+		description: "Frontend Entwickler aus Bamberg",
 	},
 	alternates: {
 		types: {

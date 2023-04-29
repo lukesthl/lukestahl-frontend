@@ -19,7 +19,7 @@ const calculateAge = (birthday: string): number => {
 export default function About() {
 	return (
 		<Container className="mt-16 md:mt-32">
-			<div className="grid gap-8 md:grid-cols-2 md:gap-24">
+			<div className="grid gap-8 md:grid-cols-2 md:gap-8 xl:gap-24">
 				<div>
 					<h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
 						{translate("about.title")}

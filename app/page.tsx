@@ -8,6 +8,7 @@ import { SocialLink } from "../src/components/social/social.link";
 import { TechStack } from "../src/components/home/techstack";
 import { translate } from "../src/components/utils/translation";
 import { LocationMap } from "../src/components/home/location.map";
+import Balancer from "react-wrap-balancer";
 
 export default async function Home() {
 	return (
@@ -16,9 +17,11 @@ export default async function Home() {
 				<div className="max-w-2xl">
 					<Avatar size="large" />
 					<h1 className="mt-6 text-4xl font-bold !leading-[1.1] text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-						{translate("home.title")}
+						<Balancer>{translate("home.title")}</Balancer>
 					</h1>
-					<p className="mt-6 text-zinc-600 dark:text-zinc-400">{translate("home.description")}</p>
+					<p className="mt-6 text-zinc-600 dark:text-zinc-400">
+						<Balancer>{translate("home.description")}</Balancer>
+					</p>
 					<div className="mt-6 flex gap-7">
 						{SocialLinks.map(({ title: _, ...socialLink }) => (
 							<SocialLink target="_blank" {...socialLink} key={socialLink.href.toString()} />

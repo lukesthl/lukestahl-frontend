@@ -15,7 +15,7 @@ export const Footer = () => (
 							</Link>
 						))}
 					</div>
-					<p className="text-sm text-zinc-400">
+					<p className="text-sm text-zinc-500">
 						{translate("footer.copyright", { context: { year: new Date().getFullYear() } })}
 					</p>
 				</div>

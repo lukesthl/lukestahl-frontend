@@ -58,6 +58,9 @@ dependencies:
   react-tooltip:
     specifier: ^5.11.1
     version: 5.11.1(react-dom@18.2.0)(react@18.2.0)
+  react-wrap-balancer:
+    specifier: ^0.4.1
+    version: 0.4.1(react@18.2.0)
   rehype-pretty-code:
     specifier: ^0.9.5
     version: 0.9.5(shiki@0.14.2)
@@ -3694,6 +3697,14 @@ packages:
       classnames: 2.3.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /react-wrap-balancer@0.4.1(react@18.2.0):
+    resolution: {integrity: sha512-KbIwnnCBCxj5u4yr76NXKKriM94VL33LtO9bE0sedCp4yqdGYJD8TGU+2zlPxkguH5xxKxdapBtMYdMAODk/QQ==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react@18.2.0:

@@ -30,9 +30,9 @@ const ProjectCard = ({ project }: { project: IProject }) => (
 				</p>
 				<h2 className="mt-3 font-semibold text-zinc-800 dark:text-zinc-100">{project.meta.title}</h2>
 				<p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">{project.meta.description}</p>
-				<div className="mt-3 inline-flex items-center text-sm font-medium text-primary-500">
-					<span>{translate("home.projects.readmore")}</span>
-					<ChevronRightIcon className="h-4 w-4 stroke-2" />
+				<div aria-hidden="true" className="mt-3 inline-flex items-center text-sm font-medium text-primary-500">
+					<span aria-hidden="true">{translate("home.projects.readmore")}</span>
+					<ChevronRightIcon className="h-4 w-4 stroke-2" aria-hidden="true" />
 				</div>
 			</div>
 		</div>

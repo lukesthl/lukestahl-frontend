@@ -83,7 +83,7 @@ const ResumeItem = ({ resumeItem }: { resumeItem: (typeof resume)[0] }) => (
 				{resumeItem.name}
 			</p>
 		</div>
-		<span className="text-sm text-zinc-400 dark:text-zinc-400">
+		<span className="text-sm text-zinc-400 dark:text-zinc-400" aria-hidden="true">
 			{getYear(new Date(resumeItem.start))} - {getYear(new Date(resumeItem.end))}
 		</span>
 	</div>

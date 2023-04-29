@@ -1,7 +1,6 @@
 import glob from "fast-glob";
 import { readFileSync } from "fs";
 import matter from "gray-matter";
-import MarkdownIt from "markdown-it";
 import * as path from "path";
 import { getPlaiceholder } from "plaiceholder";
 
@@ -39,7 +38,7 @@ export class ProjectService {
 		return {
 			slug: projectFileName.replace(/(\/index)?\.md$/, ""),
 			meta,
-			content: new MarkdownIt().render(content),
+			content,
 		};
 	};
 

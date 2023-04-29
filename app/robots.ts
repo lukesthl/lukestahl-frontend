@@ -13,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
 			  };
 	return {
 		rules,
-		sitemap: `${process.env.VERCEL_URL || process.env.PUBLIC_URL}/sitemap.xml`,
-		host: `${process.env.VERCEL_URL || process.env.PUBLIC_URL}`,
+		sitemap: `${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.PUBLIC_URL}/sitemap.xml`,
+		host: `${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.PUBLIC_URL}`,
 	};
 }

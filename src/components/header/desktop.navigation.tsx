@@ -13,16 +13,17 @@ export const DesktopNavigation = ({
 			{navItems
 				.filter(navItem => !navItem.footerOnly)
 				.map(item => (
-					<Link
-						key={item.href}
-						href={item.href}
-						className={clsx("px-4 py-2.5 transition", {
-							"text-primary-500 hover:text-primary-500/80": currentPath === item.href,
-							"hover:text-primary-500": currentPath !== item.href,
-						})}
-					>
-						{translate(item.key)}
-					</Link>
+					<li className="px-4 py-2.5" key={item.href}>
+						<Link
+							href={item.href}
+							className={clsx("transition", {
+								"text-primary-500 hover:text-primary-500/80": currentPath === item.href,
+								"hover:text-primary-500": currentPath !== item.href,
+							})}
+						>
+							{translate(item.key)}
+						</Link>
+					</li>
 				))}
 		</ul>
 	</nav>

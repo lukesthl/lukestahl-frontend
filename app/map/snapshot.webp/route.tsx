@@ -18,7 +18,7 @@ export async function GET(request: Request) {
 	return new Response(stream, {
 		headers: {
 			"Cache-Control": `public, max-age=${60 * 60 * 24 * 30}`,
-			"content-type": "image/png",
+			"content-type": "image/webp",
 		},
 	});
 }

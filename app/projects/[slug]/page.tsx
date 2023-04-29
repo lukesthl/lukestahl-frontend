@@ -4,6 +4,43 @@ import { GoBackButton } from "../../../src/components/ui/goback.button";
 import { ProjectService } from "../../../src/services/project.service";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import Link from "next/link";
+import { Route } from "next";
+import remarkGfm from "remark-gfm";
+import rehypePrettyCode from "rehype-pretty-code";
+
+const mdxComponents: MDXRemoteProps["components"] = {
+	a: ({ children, ...props }) => {
+		return (
+			<Link {...props} target="_blank" rel="noopener" href={(props.href || "") as Route}>
+				{children}
+			</Link>
+		);
+	},
+	img: ({ src, alt }) => {
+		let widthFromSrc, heightFromSrc;
+		const url = new URL(src || "", process.env.PUBLIC_URL);
+		const widthParam = url.searchParams.get("w") || url.searchParams.get("width");
+		const heightParam = url.searchParams.get("h") || url.searchParams.get("height");
+		if (widthParam) {
+			widthFromSrc = parseInt(widthParam);
+		}
+		if (heightParam) {
+			heightFromSrc = parseInt(heightParam);
+		}
+
+		const imageProps = {
+			src: src || "",
+			alt: alt || "default alt",
+			height: heightFromSrc || 450,
+			width: widthFromSrc || 550,
+			className: "rounded-2xl object-cover",
+		};
+		// eslint-disable-next-line jsx-a11y/alt-text
+		return <Image {...imageProps} />;
+	},
+};
 
 export default async function Projects({ params }: { params: { slug: string } }) {
 	const project = await ProjectService.getProjectByFileName(`${params.slug}.md`);
@@ -48,7 +85,22 @@ export default async function Projects({ params }: { params: { slug: string } })
 								)}
 							</div>
 						</header>
-						<div className="prose mt-8 dark:prose-invert" dangerouslySetInnerHTML={{ __html: project.content }} />
+						<div className="prose mt-8 dark:prose-invert">
+							{/* @ts-expect-error Server Component */}
+							<MDXRemote
+								source={project.content}
+								components={mdxComponents}
+								options={{
+									mdxOptions: {
+										remarkPlugins: [
+											// Adds support for GitHub Flavored Markdown
+											remarkGfm,
+										],
+										rehypePlugins: [[rehypePrettyCode, { theme: "dark-plus" }]],
+									},
+								}}
+							/>
+						</div>
 					</article>
 				</div>
 			</Container>

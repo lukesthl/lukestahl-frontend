@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MyCamera from "../../public/assets/my-camera.jpeg";
+import MyCamera from "../../public/assets/20230425-DSCF1828.jpg";
 import { Container } from "../../src/components/layout/container";
 import { ImageGallery } from "../../src/components/images/image.gallery";
 import { translate } from "../../src/components/utils/translation";
@@ -23,8 +23,7 @@ export default async function Images() {
 								src={MyCamera}
 								sizes="(min-width: 640px) 18rem, 11rem"
 								alt="my camera"
-								fill
-								className="object-cover"
+								className="object-cover -translate-y-32"
 								placeholder="blur"
 							/>
 						</div>

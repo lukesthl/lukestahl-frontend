@@ -1,37 +1,63 @@
 import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
-import { Header } from "../src/components/header/header";
-import { Footer } from "../src/components/layout/footer";
-import { Breakpoints } from "../src/components/utils/breakpoints";
+import { Header } from "./header";
+import { Footer } from "./footer";
+import { Breakpoints } from "./breakpoints";
 import "./globals.css";
+import { initTheme } from "./theme.script";
+
+const url = new URL(process.env.PUBLIC_URL || "");
 
 export const metadata: Metadata = {
-	title: "Luke Stahl - Frontend Entwickler",
+	title: {
+		template: "%s | Luke Stahl",
+		default: "Luke Stahl",
+	},
 	description: "Frontend Entwickler aus Bamberg",
+	themeColor: [
+		{ media: "(prefers-color-scheme: light)", color: "#f5f5f5" },
+		{ media: "(prefers-color-scheme: dark)", color: "#000" },
+	],
+	openGraph: {
+		title: "Luke Stahl",
+		description: "Frontend Entwickler aus Bamberg",
+		url: `${url.toString()}`,
+		siteName: "Luke Stahl Website",
+		locale: "de_DE",
+		type: "website",
+		images: [
+			{
+				url: `${url.toString()}/og?title=${encodeURIComponent(
+					"Frontend / App Entwickler, Video- und Hobby-Fotograf."
+				)}&description=${encodeURIComponent("Ich bin Luke, Frontend Entwickler für Web und Mobile Apps")}`,
+				width: 1200,
+				height: 630,
+				alt: "Luke Stahl Website",
+			},
+		],
+	},
+	twitter: {
+		title: "Luke Stahl",
+		card: "summary_large_image",
+		creator: "@lukesthl",
+	},
+	alternates: {
+		types: {
+			// See the RSS Feed section for more details
+			"application/rss+xml": `${url.toString()}/feed.xml`,
+		},
+	},
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="de" className="antialiased">
+		<html lang="de" className="antialiased" suppressHydrationWarning>
 			<head>
 				<script
-					defer
-					id="theme-script"
 					dangerouslySetInnerHTML={{
-						__html: `
-							let darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-							let isSystemDarkMode = darkModeMediaQuery.matches;
-							let isDarkMode =
-								window.localStorage.theme === "dark" || (!("theme" in window.localStorage) && isSystemDarkMode);
-							window.localStorage.theme = isDarkMode ? "dark" : "light";
-							if (isDarkMode) {
-								document.documentElement.classList.add("dark");
-							} else {
-								document.documentElement.classList.remove("dark");
-							}
-					`,
+						__html: `(${initTheme.toString()})();`,
 					}}
-				></script>
+				/>
 			</head>
 			<body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
 				<div className="fixed inset-0 flex justify-center sm:px-8">

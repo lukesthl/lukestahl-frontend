@@ -31,7 +31,13 @@ export async function GET(req: Request) {
 									src="https://github.com/lukesthl.png"
 								/>
 								<div tw="flex flex-col items-end">
-									<span tw="text-zinc-400 font-medium ml-4">{new URL(process.env.PUBLIC_URL || "").host}</span>
+									<span tw="text-zinc-400 font-medium ml-4">
+										{
+											new URL(
+												process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`
+											).host
+										}
+									</span>
 									{date && <span tw="text-zinc-400 font-medium ml-4 mt-1">{date}</span>}
 								</div>
 							</div>

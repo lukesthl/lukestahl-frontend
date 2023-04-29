@@ -20,7 +20,10 @@ const mdxComponents: MDXRemoteProps["components"] = {
 	},
 	img: ({ src, alt }) => {
 		let widthFromSrc, heightFromSrc;
-		const url = new URL(src || "", process.env.PUBLIC_URL);
+		const url = new URL(
+			src || "",
+			process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.PUBLIC_URL
+		);
 		const widthParam = url.searchParams.get("w") || url.searchParams.get("width");
 		const heightParam = url.searchParams.get("h") || url.searchParams.get("height");
 		if (widthParam) {

@@ -12,6 +12,7 @@ export async function GET(request: Request) {
 	}
 	const mapUrl = MapService.getMapURL((process.env.DEFAULT_LOCATION || process.env.DEFAULT_LOCATION_GEO) as string, {
 		colorScheme: theme,
+		scale: request.headers.get("user-agent")?.includes("Mobile") ? "1" : "2",
 	});
 	const stream = await fetch(mapUrl).then(res => res.body);
 	console.log("get map snapshot: ", mapUrl);

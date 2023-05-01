@@ -7,7 +7,7 @@ import "./globals.css";
 import { initTheme } from "./theme.script";
 import { translate } from "../components/utils/translation";
 
-const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);
+const url = new URL(`${process.env.PUBLIC_URL}`);
 const images = [
 	{
 		url: `${url.toString()}/og?title=${encodeURIComponent(translate("home.title"))}&description=${encodeURIComponent(

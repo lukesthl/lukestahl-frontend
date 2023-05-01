@@ -6,10 +6,10 @@ import { SocialLinks } from "../../components/social/links";
 import { SocialLink } from "../../components/social/social.link";
 import { Metadata } from "next";
 
-const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);
+const url = new URL(`${process.env.PUBLIC_URL}`);
 const images = [
 	{
-		url: `${url.toString()}/og?title=${encodeURIComponent(translate("about.meta.title"))}`,
+		url: `${url.toString()}og?title=${encodeURIComponent(translate("about.meta.title"))}`,
 		width: 1200,
 		height: 630,
 	},

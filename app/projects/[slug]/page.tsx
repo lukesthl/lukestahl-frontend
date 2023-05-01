@@ -11,7 +11,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-	const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);
+	const url = new URL(`${process.env.PUBLIC_URL}`);
 	const project = await ProjectService.getProjectByFileName(`${params.slug}.md`);
 	const images = [
 		{
@@ -52,10 +52,7 @@ const mdxComponents: MDXRemoteProps["components"] = {
 			);
 		}
 		let widthFromSrc, heightFromSrc;
-		const url = new URL(
-			src || "",
-			process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.PUBLIC_URL
-		);
+		const url = new URL(src || "", process.env.PUBLIC_URL);
 		const widthParam = url.searchParams.get("w") || url.searchParams.get("width");
 		const heightParam = url.searchParams.get("h") || url.searchParams.get("height");
 		if (widthParam) {

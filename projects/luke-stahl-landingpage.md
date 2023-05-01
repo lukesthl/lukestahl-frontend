@@ -1,6 +1,6 @@
 ---
 author: 'Luke Stahl'
-date: '2023-04-16'
+date: '2023-05-01'
 title: 'Meine Portfolio Website - lukestahl.de'
 description: 'Eine persönliche Landingpage für meine Projekte und Bilder.'
 bannerImage: "/assets/projects/lukestahl-frontend/lukestahl-frontend.png"
@@ -17,7 +17,7 @@ Ich habe bereits seit längerem überlegt eine eigene Portfolio Website zu erste
 
 ## Design
 
-Angefangen mit dem Design habe ich mit der Startseite in [Adobe XD](https://xd.adobe.com/view/de637577-6941-4899-ac8d-90a629c1104f-8b30/?fullscreen) um einen groben Überblick zu bekommen und ein paar Dinge auszuprobieren. Dabei habe ich als Inspiration das [Portfolio Website Template von TailwindUI](https://tailwindui.com/templates/spotlight) genommen. Ich wollte ein einfaches Design, welches nicht zu überladen ist.
+Angefangen mit dem Design habe ich mit der Startseite in [Adobe XD](https://xd.adobe.com/view/de637577-6941-4899-ac8d-90a629c1104f-8b30/?fullscreen) um einen groben Überblick zu bekommen und ein paar Designs auszuprobieren. Dabei habe ich als Inspiration das [Portfolio Website Template von TailwindUI](https://tailwindui.com/templates/spotlight) genommen. Ich wollte ein einfaches Design, welches nicht zu überladen ist.
 
 ## Tech stack
 - [Nextjs 13](https://nextjs.org/)
@@ -29,18 +29,16 @@ Damit ich nicht nur meine Projekte zeigen kann, sondern auch über diese schreib
 
 ## Bilder
 
-
-Die Bilder werden über fast-glob bei build aus dem Image Ordner geladen:
+Damit ich alle Bilder anzeigen kann, benutzte ich fast-glob, welches die Bilder bei build aus dem Image Ordner lädt.
 ```tsx
 await glob(["public/assets/images/**/*.{png,jpg,jpeg,JPG}"]);
 ```
-Da Nextjs aktuell keine Möglichkeit bietet die geblurte base64 Vorschau der Bilder automatisch über ein dynamic Import zu erstellen, benutze ich [plaiceholder](https://plaiceholder.co/) um die Platzhalter-Bilder zu generieren.
-Zusätzlich lade ich die EXIF Daten der Bilder damit man die Bilder nach Datum sortieren kann.  
+Da Nextjs aktuell keine Möglichkeit bietet die geblurte base64 Vorschau der Bilder automatisch über ein dynamic Import zu erstellen, benutze ich [plaiceholder](https://plaiceholder.co/) um die Platzhalter-Bilder zu generieren. Zusätzlich werden die EXIF-Daten der Bilder ausgelesen, damit man diese nach Datum sortieren kann.    
 In Zukunft will ich hier vielleicht noch ein S3 Bucket anbinden, damit ich die Bilder nicht mehr in das Repository pushen muss.
 
 ## SEO & Metadata
 
-SEO und Nextjs spielen mit SSR super zussamen. So musste ich für einen Lighthouse Score von 100 nicht viel tun. Abgesehen von den üblichen Meta Tags, habe ich noch eine Sitemap und einen RSS Feed erstellt.
+SEO und Nextjs spielen mit SSR super zusammen. So musste ich für einen Lighthouse Score von 100 nicht viel tun. Abgesehen von den üblichen Meta Tags habe ich noch eine Sitemap und einen RSS Feed erstellt.
 
 ![lukestahl.de lighthouse score](/assets/projects/lukestahl-frontend/lighthouse-performance.png?width=700&height=200)
 
@@ -94,6 +92,10 @@ Aktuell kommt man mit Nextjs und React bei der Startseite auf **~96 kB**:
 
 Da Nextjs allein schon initial **~85 kB** groß ist, wird man da auch nicht viel kleiner kommen.  
 Meine Idee war ursprünglich Preact anstatt von React zu benutzen, da man so die Bundlesize auf **~53 kB** drücken könnte. Allerdings funktioniert das ganze noch nicht mit Server Components (https://github.com/preactjs/preact/issues/3793)
+
+### Weiterentwicklung
+Generell bin ich mit dem Ergebnis sehr zufrieden. Der Syntax von React Server Components verringert den boilerplate Code und die neue Metadata API macht es sehr einfach Meta Tags zu erstellen.  
+In Zukunft will ich noch ein paar kleine Features hinzufügen. Zum Bespiel die Bilder mit Tags versehen, um diese dann filtern. Außerdem will ich die Bilder mit einem S3 Bucket verbinden, damit ich diese nicht mehr in das Repository pushen muss.
 
 ### Open Source
 Das Projekt ist übrigens Open Source und kann auf Github gefunden werden: [lukestahl-frontend](https://github.com/lukesthl/lukestahl-frontend)

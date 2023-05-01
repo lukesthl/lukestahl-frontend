@@ -48,7 +48,14 @@ export default function About() {
 					{/* TODO cleaner without duplicating image and links */}
 					<div className="block md:hidden">
 						<div className="mt-6 aspect-[9/10] w-full flex-none rotate-1 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl">
-							<Image src={AvatarPicture} quality={50} alt="me" className="object-cover" fill placeholder="blur" />
+							<Image
+								src={AvatarPicture}
+								quality={50}
+								alt="Luke Stahl"
+								className="object-cover"
+								fill
+								placeholder="blur"
+							/>
 						</div>
 						<div className="mt-6 space-y-1">
 							{SocialLinks.map(socialLink => (
@@ -64,7 +71,7 @@ export default function About() {
 				</div>
 				<div className="hidden md:block">
 					<div className="aspect-[9/10] w-full flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl">
-						<Image src={AvatarPicture} quality={50} alt="me" className="object-cover" fill />
+						<Image src={AvatarPicture} quality={50} alt="Luke Stahl" className="object-cover" fill />
 					</div>
 					<div className="mt-6 md:space-y-1 space-y-2">
 						{SocialLinks.map(socialLink => (

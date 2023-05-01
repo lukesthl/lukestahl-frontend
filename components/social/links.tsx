@@ -25,7 +25,7 @@ export const SocialLinks: {
 	{
 		icon: XingIcon,
 		title: "Xing",
-		href: new URL("https://xing.com"),
+		href: new URL("https://www.xing.com/profile/Luke_Stahl048143"),
 		"aria-label": "Follow me on Xing",
 	},
 	{

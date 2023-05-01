@@ -23,7 +23,7 @@ export const LocationMap = () => {
 
 						<Image
 							src={AvatarPicture}
-							alt="Photo of me above a map of my current location"
+							alt="Foto von mir über der Karte"
 							className="h-14 object-cover object-center w-14 z-20 rounded-full border border-zinc-400 dark:border-zinc-700/40 transition-transform duration-500 group-hover:-rotate-[10deg] group-hover:scale-110"
 							quality={40}
 						/>

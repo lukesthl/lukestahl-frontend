@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MyCamera from "../public/assets/20230425-DSCF1828.jpg";
+import MyCamera from "../../public/assets/20230425-DSCF1828.jpg";
 import { Container } from "../../components/layout/container";
 import { ImageGallery } from "../../components/images/image.gallery";
 import { translate } from "../../components/utils/translation";

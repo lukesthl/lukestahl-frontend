@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "../../components/layout/container";
 import { translate } from "../../components/utils/translation";
-import AvatarPicture from "../public/assets/me.png";
+import AvatarPicture from "../../public/assets/me.png";
 import { SocialLinks } from "../../components/social/links";
 import { SocialLink } from "../../components/social/social.link";
 import { Metadata } from "next";

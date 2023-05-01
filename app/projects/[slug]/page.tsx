@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 	const project = await ProjectService.getProjectByFileName(`${params.slug}.md`);
 	const images = [
 		{
-			url: `${url.toString()}/og?title=${encodeURIComponent(project.meta.title)}&description=${encodeURIComponent(
+			url: `${url.toString()}og?title=${encodeURIComponent(project.meta.title)}&description=${encodeURIComponent(
 				project.meta.description
 			)}`,
 			width: 1200,

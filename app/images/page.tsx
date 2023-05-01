@@ -6,10 +6,10 @@ import { translate } from "../../components/utils/translation";
 import { ImageService } from "../../services/image.service";
 import { Metadata } from "next";
 
-const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);
+const url = new URL(`${process.env.PUBLIC_URL}`);
 const images = [
 	{
-		url: `${url.toString()}/og?title=${encodeURIComponent(translate("photos.title"))}&description=${encodeURIComponent(
+		url: `${url.toString()}og?title=${encodeURIComponent(translate("photos.title"))}&description=${encodeURIComponent(
 			translate("photos.description")
 		)}`,
 		width: 1200,

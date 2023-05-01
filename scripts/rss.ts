@@ -18,20 +18,20 @@ marked.setOptions({
 
 const renderProject = (md: string) => marked.parse(md);
 
-const url = `${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.PUBLIC_URL}`;
+const url = `${process.env.PUBLIC_URL}`;
 
 const main = async (): Promise<void> => {
 	const feed = new RSS({
 		title: "Luke Stahl",
 		site_url: `${url.toString()}`,
-		feed_url: `${url.toString()}/feed.xml`,
-		image_url: `${url.toString()}/og.png?title=${encodeURIComponent("Luke Stahl's Projekte")}}`,
+		feed_url: `${url.toString()}feed.xml`,
+		image_url: `${url.toString()}og.png?title=${encodeURIComponent("Luke Stahl's Projekte")}}`,
 		language: "de",
 		description: "Luke Stahl's Projekte",
 	});
 	const projects = await ProjectService.getProjects({ filter: project => !!project.content });
 	projects.forEach(project => {
-		const projectUrl = `${url.toString()}/projects/${project.slug}`;
+		const projectUrl = `${url.toString()}projects/${project.slug}`;
 
 		feed.item({
 			title: project.meta.title,

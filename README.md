@@ -8,7 +8,7 @@
 
 ### Environment variables
 - `DEFAULT_LOCATION_GEO`, `DEFAULT_LOCATION`, `APPLE_TEAM_ID`, `APPLE_PRIV_KEY_BASE64`, `APPLE_KEY_ID`: required for map snapshot generation on the home page
-- `PUBLIC_URL`: optional for setting the base URL of the site when deployed without vercel
+- `PUBLIC_URL`: for setting the base URL of the site when deployed
 
 ### Usage:
 - `pnpm <command>`:

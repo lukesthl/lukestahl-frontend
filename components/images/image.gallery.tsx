@@ -133,7 +133,7 @@ export const ImageGallery = ({ images: allImages }: { images: IImage[] }) => {
 							src={image.url}
 							blurDataURL={image.blurUrl}
 							placeholder="blur"
-							alt={"todo"}
+							alt={`Bild in Galerie ${imageIndex + 1}`}
 							quality={30}
 							sizes="(min-width: 640px) 18rem, 11rem"
 							fill

@@ -11,7 +11,7 @@ export const MapImage = () => {
 			src={`/map/snapshot.webp?theme=${theme}`}
 			unoptimized
 			className="h-full w-full bg-black object-cover object-center"
-			alt="TODO"
+			alt="Standort Karte"
 			sizes="(min-width: 640px) 18rem, 11rem"
 			width={680}
 			height={400}

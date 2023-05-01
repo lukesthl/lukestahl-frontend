@@ -107,7 +107,7 @@ export default async function Projects({ params }: { params: { slug: string } })
 								{project.meta.bannerImage && (
 									<Image
 										src={project.meta.bannerImage}
-										alt="alt"
+										alt={`${project.meta.title} banner`}
 										fill
 										priority
 										className="rounded-2xl object-cover"

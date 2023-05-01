@@ -21,11 +21,11 @@ export const navItems: {
 		href: "mailto:luke@lukestahl.de" as Route,
 		key: "navigation.contact",
 	},
-	{
-		href: "/imprint",
-		key: "footer.imprint",
-		footerOnly: true,
-	},
+	// {
+	// 	href: "/imprint",
+	// 	key: "footer.imprint",
+	// 	footerOnly: true,
+	// },
 	{
 		href: "/privacypolicy",
 		key: "footer.privacypolicy",

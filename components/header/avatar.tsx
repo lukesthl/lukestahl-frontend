@@ -14,7 +14,7 @@ export const Avatar = ({ size = "small", visible = true }: { size?: "small" | "l
 			>
 				<Image
 					src={AvatarPicture}
-					alt="Bild von Luke Stahl"
+					alt="Portrait von Luke Stahl"
 					className={clsx("scale-150 hover:scale-125 ease-in-out duration-300 transition rounded-full object-cover", {
 						"h-10 w-10": size === "small",
 						"h-16 w-16": size === "large",

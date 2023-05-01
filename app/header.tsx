@@ -1,10 +1,10 @@
 "use client";
-import { Avatar } from "../src/components/header/avatar";
-import { DesktopNavigation } from "../src/components/header/desktop.navigation";
-import { ThemeToggle } from "../src/components/header/theme.toggle";
+import { Avatar } from "../components/header/avatar";
+import { DesktopNavigation } from "../components/header/desktop.navigation";
+import { ThemeToggle } from "../components/header/theme.toggle";
 import { usePathname } from "next/navigation";
-import { Container } from "../src/components/layout/container";
-import { MobileNavigation } from "../src/components/header/mobile.navigation";
+import { Container } from "../components/layout/container";
+import { MobileNavigation } from "../components/header/mobile.navigation";
 
 export const Header = () => {
 	const pathname = usePathname();

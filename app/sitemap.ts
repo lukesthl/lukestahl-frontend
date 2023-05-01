@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
-import { navItems } from "../src/components/header/navitems";
-import { ProjectService } from "../src/services/project.service";
+import { navItems } from "../components/header/navitems";
+import { ProjectService } from "../services/project.service";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const defaultSitemap: MetadataRoute.Sitemap = navItems

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import MyCamera from "../../public/assets/20230425-DSCF1828.jpg";
-import { Container } from "../../src/components/layout/container";
-import { ImageGallery } from "../../src/components/images/image.gallery";
-import { translate } from "../../src/components/utils/translation";
-import { ImageService } from "../../src/services/image.service";
+import MyCamera from "../public/assets/20230425-DSCF1828.jpg";
+import { Container } from "../../components/layout/container";
+import { ImageGallery } from "../../components/images/image.gallery";
+import { translate } from "../../components/utils/translation";
+import { ImageService } from "../../services/image.service";
 import { Metadata } from "next";
 
 const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);

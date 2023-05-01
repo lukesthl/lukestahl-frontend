@@ -1,13 +1,13 @@
-import { Container } from "../src/components/layout/container";
-import { Avatar } from "../src/components/header/avatar";
-import { HorizontalImageList } from "../src/components/home/horizontal.imagelist";
-import { ProjectList } from "../src/components/home/project.list";
-import { Resume } from "../src/components/home/resume";
-import { SocialLinks } from "../src/components/social/links";
-import { SocialLink } from "../src/components/social/social.link";
-import { TechStack } from "../src/components/home/techstack";
-import { translate } from "../src/components/utils/translation";
-import { LocationMap } from "../src/components/home/location.map";
+import { Container } from "../components/layout/container";
+import { Avatar } from "../components/header/avatar";
+import { HorizontalImageList } from "../components/home/horizontal.imagelist";
+import { ProjectList } from "../components/home/project.list";
+import { Resume } from "../components/home/resume";
+import { SocialLinks } from "../components/social/links";
+import { SocialLink } from "../components/social/social.link";
+import { TechStack } from "../components/home/techstack";
+import { translate } from "../components/utils/translation";
+import { LocationMap } from "../components/home/location.map";
 import Balancer from "react-wrap-balancer";
 
 export default async function Home() {

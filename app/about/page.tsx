@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { Container } from "../../src/components/layout/container";
-import { translate } from "../../src/components/utils/translation";
-import AvatarPicture from "../../public/assets/me.png";
-import { SocialLinks } from "../../src/components/social/links";
-import { SocialLink } from "../../src/components/social/social.link";
+import { Container } from "../../components/layout/container";
+import { translate } from "../../components/utils/translation";
+import AvatarPicture from "../public/assets/me.png";
+import { SocialLinks } from "../../components/social/links";
+import { SocialLink } from "../../components/social/social.link";
 import { Metadata } from "next";
 
 const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);

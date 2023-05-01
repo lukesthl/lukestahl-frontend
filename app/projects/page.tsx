@@ -1,12 +1,12 @@
 import { ChevronRightIcon, LinkIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
-import { SimpleLayout } from "../../src/components/layout/simplelayout";
-import { translate } from "../../src/components/utils/translation";
-import { ProjectService } from "../../src/services/project.service";
-import { GitHubIcon } from "../../src/components/icons/github.icon";
+import { SimpleLayout } from "../../components/layout/simplelayout";
+import { translate } from "../../components/utils/translation";
+import { ProjectService } from "../../services/project.service";
+import { GitHubIcon } from "../../components/icons/github.icon";
 import { Metadata, Route } from "next";
-import { IProject } from "../../src/services/project.service";
+import { IProject } from "../../services/project.service";
 import clsx from "clsx";
 
 export const metadata: Metadata = {

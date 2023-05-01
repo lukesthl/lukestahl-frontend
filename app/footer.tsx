@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Container } from "../src/components/layout/container";
-import { navItems } from "../src/components/header/navitems";
-import { translate } from "../src/components/utils/translation";
+import { Container } from "../components/layout/container";
+import { navItems } from "../components/header/navitems";
+import { translate } from "../components/utils/translation";
 
 export const Footer = () => (
 	<footer className="mx-auto mt-16 max-w-7xl px-4 sm:mt-32 md:px-16">

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Container } from "../../../src/components/layout/container";
-import { GoBackButton } from "../../../src/components/ui/goback.button";
-import { ProjectService } from "../../../src/services/project.service";
+import { Container } from "../../../components/layout/container";
+import { GoBackButton } from "../../../components/ui/goback.button";
+import { ProjectService } from "../../../services/project.service";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";

@@ -1,11 +1,11 @@
 import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
-import { Header } from "./header";
-import { Footer } from "./footer";
-import { Breakpoints } from "./breakpoints";
-import "./globals.css";
-import { initTheme } from "./theme.script";
 import { translate } from "../components/utils/translation";
+import { Breakpoints } from "./breakpoints";
+import { Footer } from "./footer";
+import "./globals.css";
+import { Header } from "./header";
+import { initTheme } from "./theme.script";
 
 const url = new URL(`${process.env.PUBLIC_URL}`);
 const images = [
@@ -60,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						__html: `(${initTheme.toString()})();`,
 					}}
 				/>
+				<script defer data-domain="lukestahl.de" src="http://an.lukestahl.de/js/script.js"></script>
 			</head>
 			<body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
 				<div className="fixed inset-0 flex justify-center sm:px-8">

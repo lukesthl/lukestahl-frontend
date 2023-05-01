@@ -45,7 +45,7 @@ const nextConfig = {
 
 const ContentSecurityPolicy = `
     default-src 'self' vercel.live;
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live an.lukestahl.de;
     style-src 'self' 'unsafe-inline';
     img-src * blob: data:;
     media-src ${process.env.NODE_ENV === "development" ? "*" : "https://www.user-images.githubusercontent.com"};

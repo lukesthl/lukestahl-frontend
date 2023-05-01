@@ -10,10 +10,11 @@ links:
 tags:
     - Frontend
     - NextJS
+    - Dashboard
 ---
 
 ## Die Idee
-Wer schon einmal mit dem UI der Fritz!Box in Berührung gekommen ist, weiß das dieses nicht gerade die Schnellste ist. Nachdem ich mich darüber und um den fehlenden Darkmode geärgert habe, dachte ich mir:  
+Wer schon einmal mit dem UI der Fritz!Box in Berührung gekommen ist, weiß das dieses nicht gerade das Schnellste ist. Nachdem ich mich darüber und über den fehlenden Darkmode geärgert habe, dachte ich mir:  
 Das muss besser gehen.  
 Also habe ich ein eigens UI mit Nextjs erstellt, damit ich alle Router und Smarthome-Geräte im Blick habe. Somit hat man alle Statistiken auf einem Blick.
 

@@ -4,6 +4,30 @@ import { Container } from "../../src/components/layout/container";
 import { ImageGallery } from "../../src/components/images/image.gallery";
 import { translate } from "../../src/components/utils/translation";
 import { ImageService } from "../../src/services/image.service";
+import { Metadata } from "next";
+
+const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);
+const images = [
+	{
+		url: `${url.toString()}/og?title=${encodeURIComponent(translate("photos.title"))}&description=${encodeURIComponent(
+			translate("photos.description")
+		)}`,
+		width: 1200,
+		height: 630,
+	},
+];
+
+export const metadata: Metadata = {
+	title: translate("photos.title"),
+	description: translate("photos.description"),
+	openGraph: {
+		images,
+	},
+	twitter: {
+		title: translate("photos.title"),
+		images,
+	},
+};
 
 export default async function Images() {
 	const images = JSON.parse(await ImageService.getImages());
@@ -25,6 +49,7 @@ export default async function Images() {
 								alt="my camera"
 								className="object-cover -translate-y-32"
 								placeholder="blur"
+								priority
 							/>
 						</div>
 					</div>

@@ -5,31 +5,31 @@ import { Footer } from "./footer";
 import { Breakpoints } from "./breakpoints";
 import "./globals.css";
 import { initTheme } from "./theme.script";
+import { translate } from "../src/components/utils/translation";
 
 const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);
 const images = [
 	{
-		url: `${url.toString()}/og?title=${encodeURIComponent(
-			"Frontend / App Entwickler, Video- und Hobby-Fotograf."
-		)}&description=${encodeURIComponent("Ich bin Luke, Frontend Entwickler für Web und Mobile Apps")}`,
+		url: `${url.toString()}/og?title=${encodeURIComponent(translate("home.title"))}&description=${encodeURIComponent(
+			translate("home.description")
+		)}`,
 		width: 1200,
 		height: 630,
-		alt: "Luke Stahl Website",
 	},
 ];
 export const metadata: Metadata = {
 	title: {
 		template: "%s | Luke Stahl",
-		default: "Luke Stahl",
+		default: translate("home.meta.title"),
 	},
-	description: "Frontend Entwickler aus Bamberg",
+	description: translate("home.meta.description"),
 	themeColor: [
 		{ media: "(prefers-color-scheme: light)", color: "#f5f5f5" },
 		{ media: "(prefers-color-scheme: dark)", color: "#000" },
 	],
 	openGraph: {
-		title: "Luke Stahl",
-		description: "Frontend Entwickler aus Bamberg",
+		title: translate("home.meta.title"),
+		description: translate("home.meta.description"),
 		url: `${url.toString()}`,
 		siteName: "Luke Stahl Website",
 		locale: "de_DE",
@@ -37,16 +37,16 @@ export const metadata: Metadata = {
 		images,
 	},
 	twitter: {
-		title: "Luke Stahl",
+		title: translate("home.meta.title"),
 		card: "summary_large_image",
 		creator: "@lukesthl",
 		images,
-		description: "Frontend Entwickler aus Bamberg",
+		description: translate("home.meta.description"),
 	},
 	alternates: {
 		types: {
 			// See the RSS Feed section for more details
-			"application/rss+xml": `${url.toString()}/feed.xml`,
+			"application/rss+xml": `${url.toString()}feed.xml`,
 		},
 	},
 };

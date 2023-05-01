@@ -3,10 +3,12 @@ import { navItems } from "../src/components/header/navitems";
 import { ProjectService } from "../src/services/project.service";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-	const defaultSitemap: MetadataRoute.Sitemap = navItems.map(item => ({
-		url: `${`https://${process.env.VERCEL_URL}` || process.env.PUBLIC_URL}${item.href}`,
-		lastModified: new Date().toISOString().split("T")[0],
-	}));
+	const defaultSitemap: MetadataRoute.Sitemap = navItems
+		.filter(item => item.href.startsWith("/"))
+		.map(item => ({
+			url: `${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.PUBLIC_URL}${item.href}`,
+			lastModified: new Date().toISOString().split("T")[0],
+		}));
 	const projects = await ProjectService.getProjects();
 	const projectSitemap: MetadataRoute.Sitemap = projects
 		.filter(project => !!project.content)

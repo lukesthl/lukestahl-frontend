@@ -4,6 +4,27 @@ import { translate } from "../../src/components/utils/translation";
 import AvatarPicture from "../../public/assets/me.png";
 import { SocialLinks } from "../../src/components/social/links";
 import { SocialLink } from "../../src/components/social/social.link";
+import { Metadata } from "next";
+
+const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);
+const images = [
+	{
+		url: `${url.toString()}/og?title=${encodeURIComponent(translate("about.meta.title"))}`,
+		width: 1200,
+		height: 630,
+	},
+];
+
+export const metadata: Metadata = {
+	title: translate("about.meta.title"),
+	openGraph: {
+		images,
+	},
+	twitter: {
+		title: translate("about.meta.title"),
+		images,
+	},
+};
 
 const calculateAge = (birthday: string): number => {
 	var currentDate = new Date();
@@ -45,7 +66,7 @@ export default function About() {
 					<div className="aspect-[9/10] w-full flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl">
 						<Image src={AvatarPicture} quality={50} alt="me" className="object-cover" fill />
 					</div>
-					<div className="mt-6 space-y-1">
+					<div className="mt-6 md:space-y-1 space-y-2">
 						{SocialLinks.map(socialLink => (
 							<SocialLink target="_blank" {...socialLink} key={socialLink.href.toString()} />
 						))}

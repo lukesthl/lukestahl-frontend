@@ -6,7 +6,7 @@ import { Button } from "./button";
 export const GoBackButton = () => {
 	const router = useRouter();
 	return (
-		<Button onClick={() => router.back()}>
+		<Button onClick={() => router.back()} aria-label="Go back">
 			<ChevronLeftIcon className="h-6 w-6" />
 		</Button>
 	);

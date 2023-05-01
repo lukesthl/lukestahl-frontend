@@ -64,7 +64,7 @@ export const metadata: Metadata = {
 		type: "website",
 		images: [
 			{
-				url: `${url.toString()}/og?title=${encodeURIComponent(
+				url: `${url.toString()}og?title=${encodeURIComponent(
 					"Frontend / App Entwickler, Video- und Hobby-Fotograf."
 				)}&description=${encodeURIComponent("Ich bin Luke, Frontend Entwickler für Web und Mobile Apps")}`,
 				width: 1200,
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
 	},
 	alternates: {
 		types: {
-			"application/rss+xml": `${url.toString()}/feed.xml`,
+			"application/rss+xml": `${url.toString()}feed.xml`,
 		},
 	},
 };

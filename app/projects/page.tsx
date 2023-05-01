@@ -5,9 +5,13 @@ import { SimpleLayout } from "../../src/components/layout/simplelayout";
 import { translate } from "../../src/components/utils/translation";
 import { ProjectService } from "../../src/services/project.service";
 import { GitHubIcon } from "../../src/components/icons/github.icon";
-import { Route } from "next";
+import { Metadata, Route } from "next";
 import { IProject } from "../../src/services/project.service";
 import clsx from "clsx";
+
+export const metadata: Metadata = {
+	title: "Projekte",
+};
 
 export default async function Projects() {
 	const projects = await ProjectService.getProjects();

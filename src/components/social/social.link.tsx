@@ -18,6 +18,6 @@ export const SocialLink = ({
 				}
 			)}
 		/>
-		{title && <span className="ml-3 font-medium text-zinc-500">{title}</span>}
+		{title && <span className="ml-3 font-medium text-zinc-500 py-1 md:py-0">{title}</span>}
 	</Link>
 );

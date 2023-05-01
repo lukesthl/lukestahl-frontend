@@ -10,6 +10,33 @@ import { Route } from "next";
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+	const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);
+	const project = await ProjectService.getProjectByFileName(`${params.slug}.md`);
+	const images = [
+		{
+			url: `${url.toString()}/og?title=${encodeURIComponent(project.meta.title)}&description=${encodeURIComponent(
+				project.meta.description
+			)}`,
+			width: 1200,
+			height: 630,
+		},
+	];
+	return {
+		title: project.meta.title,
+		description: project.meta.description,
+		openGraph: {
+			images,
+		},
+		twitter: {
+			title: project.meta.title,
+			card: "summary_large_image",
+			creator: "@lukesthl",
+			images,
+			description: project.meta.description,
+		},
+	};
+}
 const mdxComponents: MDXRemoteProps["components"] = {
 	a: ({ children, ...props }) => {
 		return (
@@ -19,6 +46,11 @@ const mdxComponents: MDXRemoteProps["components"] = {
 		);
 	},
 	img: ({ src, alt }) => {
+		if (src?.endsWith(".mp4")) {
+			return (
+				<video src={src} controls className="rounded-2xl object-cover" controlsList="nodownload noremoteplayback" />
+			);
+		}
 		let widthFromSrc, heightFromSrc;
 		const url = new URL(
 			src || "",
@@ -77,6 +109,7 @@ export default async function Projects({ params }: { params: { slug: string } })
 										src={project.meta.bannerImage}
 										alt="alt"
 										fill
+										priority
 										className="rounded-2xl object-cover"
 										{...(project.meta.bannerImageBlur
 											? {
@@ -88,7 +121,7 @@ export default async function Projects({ params }: { params: { slug: string } })
 								)}
 							</div>
 						</header>
-						<div className="prose mt-8 dark:prose-invert">
+						<div className="prose mt-8 dark:prose-invert min-w-full">
 							{/* @ts-expect-error Server Component */}
 							<MDXRemote
 								source={project.content}

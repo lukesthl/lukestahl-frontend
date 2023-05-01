@@ -1,1 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## My personal site
+
+### Getting started
+1. Install the `pnpm` package manager: https://pnpm.io/
+2. Run `pnpm i` in the project directory
+3. Run `pnpm run dev` to start a local developer server
+
+
+### Environment variables
+- `DEFAULT_LOCATION_GEO`, `DEFAULT_LOCATION`, `APPLE_TEAM_ID`, `APPLE_PRIV_KEY_BASE64`, `APPLE_KEY_ID`: required for map snapshot generation on the home page
+- `PUBLIC_URL`: optional for setting the base URL of the site when deployed without vercel
+
+### Usage:
+- `pnpm <command>`:
+    - `lint`: automatically lints files
+    - `dev`: start a local instance with live reloading
+    - `build-rss`: generate an RSS feed 
+    - `build`: generate an RSS feed and production site
+    - `analyze`: generate a bundle you can inspect via @next/bundle-analyzer
+    - `start`: start a production instance built via `yarn build`
+
+### Directory structure:
+- `components/`: react components
+- `services/`: services that fetch data for the site
+- `app/`: next.js pages (the actual routes that are rendered)
+- `projects/`: markdown files rendered at build time 
+- `public/`: images for blog, favicon, built files
+- `scripts/`: contain the scripts for building the sitemap and RSS feed

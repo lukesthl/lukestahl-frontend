@@ -5,7 +5,7 @@ import { Footer } from "./footer";
 import { Breakpoints } from "./breakpoints";
 import "./globals.css";
 import { initTheme } from "./theme.script";
-import { translate } from "../src/components/utils/translation";
+import { translate } from "../components/utils/translation";
 
 const url = new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${process.env.PUBLIC_URL}`);
 const images = [

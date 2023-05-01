@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { MapService } from "../../../src/services/map.service";
+import { MapService } from "../../../services/map.service";
 
 export async function GET(request: Request) {
 	if (!process.env.DEFAULT_LOCATION) {

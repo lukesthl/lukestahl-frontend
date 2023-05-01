@@ -1,4 +1,4 @@
-import { Container } from "../../../src/components/layout/container";
+import { Container } from "../../../components/layout/container";
 
 export default function NotFound() {
 	return (

@@ -6,7 +6,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const defaultSitemap: MetadataRoute.Sitemap = navItems
 		.filter(item => item.href.startsWith("/"))
 		.map(item => ({
-			url: `${process.env.PUBLIC_URL}/${item.href}`,
+			url: `${process.env.PUBLIC_URL}${item.href}`,
 			lastModified: new Date().toISOString().split("T")[0],
 		}));
 	const projects = await ProjectService.getProjects();

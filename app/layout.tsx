@@ -6,6 +6,7 @@ import { Footer } from "./footer";
 import "./globals.css";
 import { Header } from "./header";
 import { initTheme } from "./theme.script";
+import Script from "next/script";
 
 const url = new URL(`${process.env.PUBLIC_URL}`);
 const images = [
@@ -60,7 +61,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						__html: `(${initTheme.toString()})();`,
 					}}
 				/>
-				<script defer data-domain="lukestahl.de" src="http://an.lukestahl.de/js/script.js"></script>
 			</head>
 			<body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
 				<div className="fixed inset-0 flex justify-center sm:px-8">
@@ -74,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<Footer />
 					<Breakpoints />
 					<Analytics />
+					<Script data-domain="lukestahl.de" src="https://an.lukestahl.de/js/script.js" strategy="afterInteractive" />
 				</div>
 			</body>
 		</html>

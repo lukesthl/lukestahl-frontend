@@ -1,7 +1,6 @@
-import { ImageResponse, NextRequest } from "next/server";
-export const config = {
-	runtime: "edge",
-};
+import { ImageResponse } from "next/server";
+
+export const runtime = "edge";
 
 const font = fetch(new URL("./fonts/Inter-Medium.ttf", import.meta.url)).then(res => res.arrayBuffer());
 

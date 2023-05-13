@@ -33,6 +33,7 @@ export class ImageService {
 					new Date(imageA.exifData?.DateTimeOriginal || 0).getTime()
 			);
 		}
+		console.log("images", images);
 		// Silly JSON stringify => https://github.com/vercel/next.js/issues/11993
 		return JSON.stringify(sorted);
 	};

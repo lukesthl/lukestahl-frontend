@@ -3,7 +3,6 @@ import { readFileSync } from "fs";
 import path from "path";
 import Exifr from "exifr/dist/lite.esm.mjs";
 import { getPlaiceholder } from "plaiceholder";
-import getConfig from "next/config";
 
 export class ImageService {
 	public static getImageByPath = async (path: string): Promise<IImage> => {

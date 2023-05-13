@@ -18,16 +18,21 @@ export class ImageService {
 		return { url: path.split("/public")[1], exifData: exifrResult, blurUrl: imageBlur?.base64 };
 	};
 
-	public static getImages = async () => {
+	public static getImages = async (options?: { sort?: (a: IImage, b: IImage) => number }) => {
 		let imagePaths = await glob(["public/assets/images/**/*.{png,jpg,jpeg,JPG}"]);
 		let images = await Promise.all(
 			imagePaths.map(imagePath => this.getImageByPath(path.join(process.cwd(), `/${imagePath}`)))
 		);
-		const sorted = images.sort(
-			(imageA, imageB) =>
-				new Date(imageB.exifData?.DateTimeOriginal || 0).getTime() -
-				new Date(imageA.exifData?.DateTimeOriginal || 0).getTime()
-		);
+		let sorted = [];
+		if (options?.sort) {
+			sorted = images.sort(options.sort);
+		} else {
+			sorted = images.sort(
+				(imageA, imageB) =>
+					new Date(imageB.exifData?.DateTimeOriginal || 0).getTime() -
+					new Date(imageA.exifData?.DateTimeOriginal || 0).getTime()
+			);
+		}
 		// Silly JSON stringify => https://github.com/vercel/next.js/issues/11993
 		return JSON.stringify(sorted);
 	};

@@ -17,46 +17,46 @@ import { useTheme } from "../utils/usetheme";
 export const imagesWhiteMode = [
 	{
 		src: image1,
-		alt: "image 1",
+		alt: "Roter Sonnenuntergang mit Bäumen",
 	},
 	{
 		src: image2,
-		alt: "image 2",
+		alt: "Wald mit einem Berg und einem See im Hintergrund",
 	},
 	{
 		src: image3,
-		alt: "image 3",
+		alt: "U-Bahn Station mit Orangen Fliesen",
 	},
 	{
 		src: image4,
-		alt: "image 4",
+		alt: "Landschaft mit einem See und Bergen im Hintergrund",
 	},
 	{
 		src: image5,
-		alt: "image 5",
+		alt: "Grüner Park mit zwei Personen",
 	},
 ];
 
 export const imagesDarkMode = [
 	{
 		src: image1DarkMode,
-		alt: "image 1",
+		alt: "Bilder einer S-Bahn bei Nacht",
 	},
 	{
 		src: image2DarkMode,
-		alt: "image 2",
+		alt: "Ich an einer Tankstelle bei Nacht",
 	},
 	{
 		src: image3DarkMode,
-		alt: "image 3",
+		alt: "Parkhaus eines Supermarkts bei Nacht",
 	},
 	{
 		src: image4DarkMode,
-		alt: "image 4",
+		alt: "Parkhaus bei Nacht mit einer silhuette eines Menschen",
 	},
 	{
 		src: image5DarkMode,
-		alt: "image 5",
+		alt: "U-Bahn Station",
 	},
 ];
 

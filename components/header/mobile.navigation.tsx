@@ -1,11 +1,9 @@
-"use client";
+import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import clsx from "clsx";
 import Link from "next/link";
 import React, { Fragment } from "react";
 import { translate } from "../utils/translation";
 import { navItems } from "./navitems";
-import { Popover, Transition } from "@headlessui/react";
 
 export const MobileNavigation = ({ className }: { className: string }) => (
 	<Popover className={className}>
@@ -39,7 +37,7 @@ export const MobileNavigation = ({ className }: { className: string }) => (
 					className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800"
 				>
 					<div className="flex flex-row-reverse items-center justify-between">
-						<Popover.Button aria-label="Close menu" className="-m-1 p-1">
+						<Popover.Button aria-label="Close menu" className="rounded-full -m-1 p-1">
 							<CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
 						</Popover.Button>
 						<h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">Navigation</h2>

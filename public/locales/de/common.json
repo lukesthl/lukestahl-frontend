@@ -33,8 +33,9 @@
     "title": "Meine Bilder",
     "description": "Ein paar meiner Bilder, die ich über die Jahre gemacht habe. Von Landschaften bis hin zu Urbanen Motiven und Momentaufnahmen des alltäglichen Lebens, meine Fotografien erzählen zumindest für mich Geschichten. Viel Spaß beim Anschauen!",
     "sorter": {
-      "newest": "Neueste zuerst",
-      "oldest": "Älteste zuerst"
+      "label": "Sortieren nach",
+      "new": "Neueste zuerst",
+      "old": "Älteste zuerst"
     }
   },
   "navigation": {

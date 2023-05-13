@@ -3,6 +3,7 @@ import { readFileSync } from "fs";
 import path from "path";
 import Exifr from "exifr/dist/lite.esm.mjs";
 import { getPlaiceholder } from "plaiceholder";
+import getConfig from "next/config";
 
 export class ImageService {
 	public static getImageByPath = async (path: string): Promise<IImage> => {
@@ -19,10 +20,9 @@ export class ImageService {
 	};
 
 	public static getImages = async (options?: { sort?: (a: IImage, b: IImage) => number }) => {
-		let imagePaths = await glob(["public/assets/images/**/*.{png,jpg,jpeg,JPG}"]);
-		let images = await Promise.all(
-			imagePaths.map(imagePath => this.getImageByPath(path.join(process.cwd(), `/${imagePath}`)))
-		);
+		let imagePaths = await glob([path.join(process.cwd(), "public/assets/images/**/*.{png,jpg,jpeg,JPG}")]);
+		console.log("imagePaths", imagePaths, path.join(process.cwd(), "public/assets/images/**/*.{png,jpg,jpeg,JPG}"));
+		let images = await Promise.all(imagePaths.map(imagePath => this.getImageByPath(imagePath)));
 		let sorted = [];
 		if (options?.sort) {
 			sorted = images.sort(options.sort);
@@ -33,7 +33,7 @@ export class ImageService {
 					new Date(imageA.exifData?.DateTimeOriginal || 0).getTime()
 			);
 		}
-		console.log("images", images);
+		console.log("images length", images.length);
 		// Silly JSON stringify => https://github.com/vercel/next.js/issues/11993
 		return JSON.stringify(sorted);
 	};

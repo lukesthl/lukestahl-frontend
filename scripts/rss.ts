@@ -1,8 +1,8 @@
-import fs from "fs/promises";
-import RSS from "rss";
-import path from "path";
-import { marked } from "marked";
 import "dotenv/config";
+import { writeFile } from "fs/promises";
+import { marked } from "marked";
+import path from "path";
+import RSS from "rss";
 import { ProjectService } from "../services/project.service";
 
 const renderer = new marked.Renderer();
@@ -12,7 +12,6 @@ renderer.link = (href, _, text) => `<a href="${href}" target="_blank" rel="noope
 marked.setOptions({
 	gfm: true,
 	breaks: true,
-	headerIds: true,
 	renderer,
 });
 
@@ -44,7 +43,7 @@ const main = async (): Promise<void> => {
 	});
 
 	const rss = feed.xml({ indent: true });
-	await fs.writeFile(path.join(__dirname, "../public/feed.xml"), rss);
+	await writeFile(path.join(__dirname, "../public/feed.xml"), rss);
 	console.log("RSS feed generated");
 };
 

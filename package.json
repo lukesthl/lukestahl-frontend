@@ -8,8 +8,7 @@
     "analyze": "ANALYZE=true next build && source-map-explorer .next/static/**/*.js",
     "start": "next start",
     "lint": "next lint",
-    "build-rss": "npx ts-node --skipProject ./scripts/rss",
-    "postbuild": "npm run build-rss"
+    "build-rss": "node --loader ts-node/esm ./scripts/rss.ts"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",

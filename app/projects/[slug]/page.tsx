@@ -128,6 +128,7 @@ export default async function Projects({ params }: { params: { slug: string } })
 											// Adds support for GitHub Flavored Markdown
 											remarkGfm,
 										],
+										// @ts-expect-error actual code work, but rehypePrettyCode is outdated
 										rehypePlugins: [[rehypePrettyCode, { theme: "dark-plus" }]],
 									},
 								}}

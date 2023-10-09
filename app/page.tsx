@@ -35,7 +35,6 @@ export default async function Home() {
 			<Container className="mt-16 sm:mt-24">
 				<div className="grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-y-20">
 					<div>
-						{/* @ts-expect-error Server Component */}
 						<ProjectList />
 					</div>
 					<div className="space-y-8 md:pl-24">

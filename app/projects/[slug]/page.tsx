@@ -119,7 +119,6 @@ export default async function Projects({ params }: { params: { slug: string } })
 							</div>
 						</header>
 						<div className="prose mt-8 dark:prose-invert min-w-full">
-							{/* @ts-expect-error Server Component */}
 							<MDXRemote
 								source={project.content}
 								components={mdxComponents}

@@ -28,8 +28,9 @@ export class ProjectService {
 		let { data, content } = await matter(readFileSync(path.join(process.cwd(), `/projects/${fileNameDecoded}`)));
 		const meta = data as IMeta;
 		if (meta.bannerImage) {
+			const buffer = await readFileSync(path.join("./public", meta.bannerImage));
 			meta.bannerImageBlur = (
-				await getPlaiceholder(meta.bannerImage).catch(error => {
+				await getPlaiceholder(buffer).catch(error => {
 					console.log(error);
 					return null;
 				})

@@ -1,4 +1,4 @@
-import { withPlaiceholder } from "@plaiceholder/next";
+import withPlaiceholder from "@plaiceholder/next";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import withPlugins from "next-compose-plugins";
 
@@ -9,7 +9,6 @@ const withBundleAnalyzer = bundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	experimental: {
-		appDir: true,
 		typedRoutes: true,
 		mdxRs: true,
 		nextScriptWorkers: true,

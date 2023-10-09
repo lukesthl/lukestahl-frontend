@@ -20,7 +20,6 @@ export class ImageService {
 
 	public static getImages = async (options?: { sort?: (a: IImage, b: IImage) => number }) => {
 		let imagePaths = await glob([path.join(process.cwd(), "public/assets/images/**/*.{png,jpg,jpeg,JPG}")]);
-		console.log("imagePaths", imagePaths, path.join(process.cwd(), "public/assets/images/**/*.{png,jpg,jpeg,JPG}"));
 		let images = await Promise.all(imagePaths.map(imagePath => this.getImageByPath(imagePath)));
 		let sorted = [];
 		if (options?.sort) {
@@ -32,7 +31,7 @@ export class ImageService {
 					new Date(imageA.exifData?.DateTimeOriginal || 0).getTime()
 			);
 		}
-		console.log("images length", images.length);
+		console.log("total images", images.length);
 		// Silly JSON stringify => https://github.com/vercel/next.js/issues/11993
 		return JSON.stringify(sorted);
 	};

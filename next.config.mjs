@@ -14,6 +14,7 @@ const nextConfig = {
 		nextScriptWorkers: true,
 		optimizeCss: true,
 	},
+	staticPageGenerationTimeout: 1000,
 	productionBrowserSourceMaps: process.env.ANALYZE === "true",
 	async redirects() {
 		return [

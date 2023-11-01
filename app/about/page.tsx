@@ -64,9 +64,7 @@ export default function About() {
 						</div>
 					</div>
 					<p className="mt-6 text-base text-zinc-600 dark:text-zinc-400 whitespace-pre-wrap">
-						{translate("about.description", {
-							context: { age: calculateAge("2002-08-10") },
-						})}
+						{translate("about.description")}
 					</p>
 				</div>
 				<div className="hidden md:block">

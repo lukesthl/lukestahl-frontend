@@ -2,20 +2,20 @@ import glob from "fast-glob";
 import { readFileSync } from "fs";
 import path from "path";
 import Exifr from "exifr/dist/lite.esm.mjs";
-import { getPlaiceholder } from "plaiceholder";
+import { getBase64ImageBlur } from "./image.placeholder";
 
 export class ImageService {
 	public static getImageByPath = async (path: string): Promise<IImage> => {
 		const fileBuffer = readFileSync(path);
 		const [exifrResult, imageBlur] = await Promise.all([
 			Exifr.parse(fileBuffer),
-			getPlaiceholder(fileBuffer).catch(error => {
+			getBase64ImageBlur(fileBuffer).catch(error => {
 				console.log(error);
 				return null;
 			}),
 		]);
 
-		return { url: path.split("/public")[1], exifData: exifrResult, blurUrl: imageBlur?.base64 };
+		return { url: path.split("/public")[1], exifData: exifrResult, blurUrl: imageBlur || undefined };
 	};
 
 	public static getImages = async (options?: { sort?: (a: IImage, b: IImage) => number }) => {

@@ -37,7 +37,7 @@
     "rehype-pretty-code": "^0.13.0",
     "remark-gfm": "^4.0.0",
     "rss": "^1.2.2",
-    "sharp": "^0.33.2",
+    "sharp": "^0.32.6",
     "shiki": "^1.1.6",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",

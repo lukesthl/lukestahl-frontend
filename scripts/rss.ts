@@ -29,12 +29,12 @@ const main = async (): Promise<void> => {
 		description: "Luke Stahl's Projekte",
 	});
 	const projects = await ProjectService.getProjects({ filter: project => !!project.content });
-	projects.forEach(project => {
+	projects.forEach(async project => {
 		const projectUrl = `${url.toString()}projects/${project.slug}`;
-
+		const description = project.content ? await renderProject(project.content) : "";
 		feed.item({
 			title: project.meta.title,
-			description: project.content ? renderProject(project.content) : "",
+			description,
 			date: new Date(project?.meta.date),
 			author: project.meta.author,
 			url: projectUrl,

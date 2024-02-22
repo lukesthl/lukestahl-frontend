@@ -1,4 +1,3 @@
-import withPlaiceholder from "@plaiceholder/next";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import withPlugins from "next-compose-plugins";
 
@@ -93,4 +92,4 @@ const securityHeaders = [
 	},
 ];
 
-export default withPlugins([withPlaiceholder, withBundleAnalyzer], nextConfig);
+export default withPlugins([withBundleAnalyzer], nextConfig);

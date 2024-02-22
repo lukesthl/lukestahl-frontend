@@ -2,7 +2,7 @@ import glob from "fast-glob";
 import { readFileSync } from "fs";
 import matter from "gray-matter";
 import * as path from "path";
-import { getPlaiceholder } from "plaiceholder";
+import { getBase64ImageBlur } from "./image.placeholder";
 
 interface IMeta {
 	title: string;
@@ -29,12 +29,11 @@ export class ProjectService {
 		const meta = data as IMeta;
 		if (meta.bannerImage) {
 			const buffer = await readFileSync(path.join("./public", meta.bannerImage));
-			meta.bannerImageBlur = (
-				await getPlaiceholder(buffer).catch(error => {
+			meta.bannerImageBlur =
+				(await getBase64ImageBlur(buffer).catch(error => {
 					console.log(error);
 					return null;
-				})
-			)?.base64;
+				})) || undefined;
 		}
 		return {
 			slug: projectFileName.replace(/(\/index)?\.md$/, ""),

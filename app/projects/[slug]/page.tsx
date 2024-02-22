@@ -112,7 +112,7 @@ export default async function Projects({ params }: { params: { slug: string } })
 											? {
 													placeholder: "blur",
 													blurDataURL: project.meta.bannerImageBlur,
-											  }
+												}
 											: {})}
 									/>
 								)}
@@ -128,7 +128,7 @@ export default async function Projects({ params }: { params: { slug: string } })
 											// Adds support for GitHub Flavored Markdown
 											remarkGfm,
 										],
-										rehypePlugins: [[rehypePrettyCode, { theme: "dark-plus" }]],
+										rehypePlugins: [[rehypePrettyCode as any, { theme: "dark-plus" }]],
 									},
 								}}
 							/>

@@ -1,14 +1,22 @@
 import sharp from "sharp";
 
-const cache = new Map<string, string>();
-
+import { Cache } from "file-system-cache";
+const cache = new Cache({
+	basePath: ".next/cache",
+});
 export const getBase64ImageBlur = async (src: Buffer) => {
 	const time = Date.now();
+	const cached = await cache.get(src.toString());
+
+	if (cached) {
+		console.log("get blur Url from cache in ", Date.now() - time + "ms");
+		return cached;
+	}
 	const size = 4;
 	const format = "png";
 	const brightness = 1;
 	const saturation = 1.2;
-	const pipeline = sharp(src)
+	const base64 = await sharp(src)
 		.resize(size, size, {
 			fit: "inside",
 		})
@@ -16,14 +24,7 @@ export const getBase64ImageBlur = async (src: Buffer) => {
 		.modulate({
 			brightness,
 			saturation,
-		});
-	if (cache.has(src.toString())) {
-		console.log("time to get cached blur", Date.now() - time + "ms");
-		return cache.get(src.toString());
-	}
-
-	const base64 = await pipeline
-		.clone()
+		})
 		.normalise()
 		.toBuffer({ resolveWithObject: true })
 		.then(({ data, info }) => `data:image/${info.format};base64,${data.toString("base64")}`)

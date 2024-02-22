@@ -1,5 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { translate } from "../components/utils/translation";
 import { Breakpoints } from "./breakpoints";
 import { Footer } from "./footer";
@@ -11,23 +11,26 @@ import Script from "next/script";
 const url = new URL(`${process.env.PUBLIC_URL}`);
 const images = [
 	{
-		url: `${url.toString()}og?title=${encodeURIComponent(translate("home.title"))}&description=${encodeURIComponent(
+		url: `/og?title=${encodeURIComponent(translate("home.title"))}&description=${encodeURIComponent(
 			translate("home.description")
 		)}`,
 		width: 1200,
 		height: 630,
 	},
 ];
+export const viewport: Viewport = {
+	themeColor: [
+		{ media: "(prefers-color-scheme: light)", color: "#f5f5f5" },
+		{ media: "(prefers-color-scheme: dark)", color: "#000" },
+	],
+};
+
 export const metadata: Metadata = {
 	title: {
 		template: "%s | Luke Stahl",
 		default: translate("home.meta.title"),
 	},
 	description: translate("home.meta.description"),
-	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "#f5f5f5" },
-		{ media: "(prefers-color-scheme: dark)", color: "#000" },
-	],
 	openGraph: {
 		title: translate("home.meta.title"),
 		description: translate("home.meta.description"),
@@ -37,6 +40,7 @@ export const metadata: Metadata = {
 		type: "website",
 		images,
 	},
+	metadataBase: url,
 	twitter: {
 		title: translate("home.meta.title"),
 		card: "summary_large_image",
@@ -47,7 +51,7 @@ export const metadata: Metadata = {
 	alternates: {
 		types: {
 			// See the RSS Feed section for more details
-			"application/rss+xml": `${url.toString()}feed.xml`,
+			"application/rss+xml": `/feed.xml`,
 		},
 	},
 };

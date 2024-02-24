@@ -4,8 +4,8 @@ import { Cache } from "./cache";
 const cache = new Cache<string>({
 	path: ".next/cache",
 });
-export const getBase64ImageBlur = async (src: Buffer) => {
-	const cached = await cache.get(src.toString());
+export const getBase64ImageBlur = async (src: Buffer, path: string) => {
+	const cached = await cache.get(path);
 
 	if (cached) {
 		return cached;
@@ -29,6 +29,6 @@ export const getBase64ImageBlur = async (src: Buffer) => {
 		.catch(err => {
 			throw err;
 		});
-	cache.set(src.toString(), base64);
+	cache.set(path, base64);
 	return base64;
 };

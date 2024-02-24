@@ -7,6 +7,7 @@ import "./globals.css";
 import { Header } from "./header";
 import { initTheme } from "./theme.script";
 import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const url = new URL(`${process.env.PUBLIC_URL}`);
 const images = [
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<Breakpoints />
 					<Analytics />
 					<Script data-domain="lukestahl.de" src="https://an.lukestahl.de/js/script.js" strategy="afterInteractive" />
+					<SpeedInsights />
 				</div>
 			</body>
 		</html>

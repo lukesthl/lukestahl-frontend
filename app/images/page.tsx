@@ -27,6 +27,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Images() {
-	const images = JSON.parse(await ImageService.getImages());
+	const images = await ImageService.getImages();
 	return <ImageGallery images={images} sort="new" />;
 }

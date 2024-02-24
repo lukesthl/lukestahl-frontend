@@ -1,9 +1,9 @@
 ## My personal site
 
 ### Getting started
-1. Install the `pnpm` package manager: https://pnpm.io/
-2. Run `pnpm i` in the project directory
-3. Run `pnpm run dev` to start a local developer server
+1. Install the `bun` package manager: https://bun.sh/
+2. Run `bun i` in the project directory
+3. Run `bun run dev` to start a local developer server
 
 
 ### Environment variables

@@ -1,5 +1,5 @@
 import glob from "fast-glob";
-import { readFileSync } from "fs";
+import { readFile } from "fs/promises";
 import matter from "gray-matter";
 import * as path from "path";
 import { getBase64ImageBlur } from "./image.placeholder";
@@ -25,12 +25,14 @@ export interface IProject {
 export class ProjectService {
 	public static getProjectByFileName = async (projectFileName: string): Promise<IProject> => {
 		const fileNameDecoded = decodeURIComponent(projectFileName);
-		let { data, content } = await matter(readFileSync(path.join(process.cwd(), `/projects/${fileNameDecoded}`)));
+		const projectFile = await readFile(path.join(process.cwd(), `/projects/${fileNameDecoded}`));
+		let { data, content } = await matter(projectFile);
 		const meta = data as IMeta;
 		if (meta.bannerImage) {
-			const buffer = await readFileSync(path.join("./public", meta.bannerImage));
+			const bannerImagePath = path.join("./public", meta.bannerImage);
+			const buffer = await readFile(bannerImagePath);
 			meta.bannerImageBlur =
-				(await getBase64ImageBlur(buffer).catch(error => {
+				(await getBase64ImageBlur(buffer, bannerImagePath).catch(error => {
 					console.log(error);
 					return null;
 				})) || undefined;

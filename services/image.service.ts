@@ -1,15 +1,15 @@
 import glob from "fast-glob";
-import { readFileSync } from "fs";
+import { readFile } from "fs/promises";
 import path from "path";
 import Exifr from "exifr/dist/lite.esm.mjs";
 import { getBase64ImageBlur } from "./image.placeholder";
 
 export class ImageService {
 	public static getImageByPath = async (path: string): Promise<IImage> => {
-		const fileBuffer = readFileSync(path);
+		const fileBuffer = await readFile(path);
 		const [exifrResult, imageBlur] = await Promise.all([
 			Exifr.parse(fileBuffer),
-			getBase64ImageBlur(fileBuffer).catch(error => {
+			getBase64ImageBlur(fileBuffer, path).catch(error => {
 				console.log(error);
 				return null;
 			}),

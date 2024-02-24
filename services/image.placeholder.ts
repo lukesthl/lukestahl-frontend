@@ -1,7 +1,7 @@
 import sharp from "sharp";
 import { Cache } from "./cache";
 
-const cache = new Cache({
+const cache = new Cache<string>({
 	path: ".next/cache",
 });
 export const getBase64ImageBlur = async (src: Buffer) => {

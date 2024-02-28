@@ -5,19 +5,23 @@ import { ProjectService } from "../../../services/project.service";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import rehypeSlug from "rehype-slug";
 import Link from "next/link";
 import { Route } from "next";
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-	const url = new URL(`${process.env.PUBLIC_URL}`);
+	const url = new URL(`${process.env.PUBLIC_URL}/og`);
 	const project = await ProjectService.getProjectByFileName(`${params.slug}.md`);
+	url.searchParams.set("title", project.meta.title);
+	url.searchParams.set("description", project.meta.description);
+	if (project.meta.bannerImage) {
+		url.searchParams.set("bannerUrl", project.meta.bannerImage);
+	}
 	const images = [
 		{
-			url: `${url.toString()}og?title=${encodeURIComponent(project.meta.title)}&description=${encodeURIComponent(
-				project.meta.description
-			)}`,
+			url: url.toString(),
 			width: 1200,
 			height: 630,
 		},
@@ -39,8 +43,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 const mdxComponents: MDXRemoteProps["components"] = {
 	a: ({ children, ...props }) => {
+		const internal = props.href?.startsWith("#");
 		return (
-			<Link {...props} target="_blank" rel="noopener" href={(props.href || "") as Route}>
+			<Link
+				{...props}
+				href={(props.href || "") as Route}
+				{...(!internal && { target: "_blank", rel: "noopener noreferrer" })}
+			>
 				{children}
 			</Link>
 		);
@@ -128,7 +137,7 @@ export default async function Projects({ params }: { params: { slug: string } })
 											// Adds support for GitHub Flavored Markdown
 											remarkGfm,
 										],
-										rehypePlugins: [[rehypePrettyCode as any, { theme: "dark-plus" }]],
+										rehypePlugins: [[rehypePrettyCode as any, { theme: "dark-plus" }], rehypeSlug],
 									},
 								}}
 							/>

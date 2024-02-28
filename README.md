@@ -11,7 +11,7 @@
 - `PUBLIC_URL`: for setting the base URL of the site when deployed
 
 ### Usage:
-- `pnpm <command>`:
+- `bun <command>`:
     - `lint`: automatically lints files
     - `dev`: start a local instance with live reloading
     - `build-rss`: generate an RSS feed 

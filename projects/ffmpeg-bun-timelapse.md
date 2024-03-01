@@ -123,10 +123,7 @@ ffmpeg -f concat \
 Das Video ist dabei bewusst noch nicht beschleunigt, da ich das Video in Premiere Pro nochmal bearbeitet habe um die interessanten Stellen zu verlangsamen und die langweiligen Stellen zu beschleunigen.
 
 ## Ergebnis
-<video width="100%" controls>
-  <source src="https://github.com/lukesthl/lukestahl-frontend/raw/main/public/assets/projects/ffmpeg-bun-timelapse/timlapse.mp4" type="video/mp4"/>
-  Your browser does not support the video tag.
-</video>
+![](https://github.com/lukesthl/lukestahl-frontend/raw/main/public/assets/projects/ffmpeg-bun-timelapse/timlapse.mp4)
 
 ## Source Code
 Das gesamte Projekt ist auf [GitHub](https://github.com/lukesthl/timelapse-generator) verfügbar.

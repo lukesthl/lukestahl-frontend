@@ -13,6 +13,9 @@ const nextConfig = {
 		nextScriptWorkers: true,
 		optimizeCss: true,
 	},
+	images: {
+		domains: ["lukesthl.github.io"],
+	},
 	staticPageGenerationTimeout: 1000,
 	productionBrowserSourceMaps: process.env.ANALYZE === "true",
 	async redirects() {

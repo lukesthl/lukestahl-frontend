@@ -28,14 +28,14 @@ Da ich schon länger keine App mehr entwickelt habe, war das mal wieder eine gut
 
 ## TechStack
 
-- **React Native**: Die App ist in React Native in Kombination mit [Expo](https://expo.dev/) entwickelt.
+- **React Native**: Die App ist in React Native in Kombination mit [Expo](https://expo.dev/) entwickelt worden.
 - **Expo Router**: [Expo App Router](https://docs.expo.dev/router/introduction/) für die Navigation in der App.
 - **AppIntent**: Die App verwendet das [AppIntent](https://developer.apple.com/documentation/appintents)-Framework, um das Öffnen der App zu unterbrechen.
 - **Expo Config Plugins**: Die App verwendet die [Expo Config Plugins](https://docs.expo.dev/config-plugins/introduction/) um die App Intents einzubinden.
 - **Tamagui**: Design und UI-Elemente wurden mit [Tamagui](https://tamagui.dev/) erstellt.
 - **AsyncStorage**: Die App speichert die Einstellungen und Statistiken lokal mit [AsyncStorage](https://react-native-async-storage.github.io/async-storage/).
 
-## Architektur
+## Architektur der App-Blockierung
 
 <div className="bg-black rounded-lg p-6">
 <img src="https://lukesthl.github.io/digital-break-app/public/architecture.png" alt="Architektur" />

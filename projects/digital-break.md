@@ -13,6 +13,8 @@ tags:
     - Tamagui
 ---
 
+###  App Store: [Digital Break](https://apps.apple.com/de/app/digitalbreak-screentime-focus/id6474795966)  
+
 ## Idee
 Ursprünglich bin ich durch one-sec auf die Idee gekommen. One-sec ist eine App, die es ermöglicht, durch bewusste Pausen vor öffnen von Apps, das Nutzungsverhalten zu ändern, um Habits wie Doomscrooling zu vermeiden.  
 Nur leider kann man die App ohne Abo nur mit einer App gleichzeit blockieren. Ich habe nichts dagegen das der Entwickler auch sein Geld verdienen will, aber ich wollte eine kostenlose Alternative ohne Abo schaffen und direkt als Experiment nutzen, um die [Expo Config Plugins](https://docs.expo.dev/config-plugins/introduction/) auszuprobieren. 

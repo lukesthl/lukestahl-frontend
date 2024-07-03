@@ -8,6 +8,8 @@ import { Header } from "./header";
 import { initTheme } from "./theme.script";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { FloatingNav } from "../components/header/floating-navbar";
+import { navItems } from "../components/header/navitems";
 
 const url = new URL(`${process.env.PUBLIC_URL}`);
 const images = [

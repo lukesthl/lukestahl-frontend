@@ -42,6 +42,7 @@ export async function GET(req: Request) {
 											tw="w-48 h-32 rounded-lg mr-4"
 											src={`${process.env.PUBLIC_URL}${bannerUrl}`}
 											width={800}
+											alt=""
 											height={400}
 										/>
 									</div>

@@ -11,8 +11,9 @@ import image3DarkMode from "../../public/assets/images/darkmode/image-3.jpg";
 import image4DarkMode from "../../public/assets/images/darkmode/image-4.jpg";
 import image5DarkMode from "../../public/assets/images/darkmode/image-5.jpg";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "../utils/usetheme";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export const imagesWhiteMode = [
 	{
@@ -70,33 +71,44 @@ export const HorizontalImageList = () => {
 		setImages(theme === "dark" ? imagesDarkMode : imagesWhiteMode);
 	}, [theme]);
 
+	const { scrollYProgress } = useScroll({});
+	const translateX = useTransform(scrollYProgress, [0, 1], [0, -150]);
 	return (
 		<div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
 			{images.map((image, imageIndex) => (
-				<div
-					key={imageIndex}
-					className={clsx(
-						"aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
-						{
-							"rotate-2": imageIndex % 2 === 0,
-							"-rotate-2": imageIndex % 2 !== 0,
-						}
-					)}
+				<motion.div
+					style={{
+						x: translateX,
+					}}
+					initial={{ opacity: 0, scale: 0.75 }}
+					animate={{ opacity: 1, scale: 1 }}
+					key={`${imageIndex}-${theme}`}
 				>
-					{image.src ? (
-						<Image
-							src={image.src}
-							alt={image.alt}
-							placeholder="blur"
-							priority
-							quality={30}
-							sizes="(min-width: 640px) 18rem, 11rem"
-							className="absolute inset-0 h-full w-full object-cover"
-						/>
-					) : (
-						<div className="absolute inset-0 h-full w-full object-cover bg-zinc-100 dark:bg-zinc-800"></div>
-					)}
-				</div>
+					<div
+						key={imageIndex}
+						className={clsx(
+							"aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
+							{
+								"rotate-2": imageIndex % 2 === 0,
+								"-rotate-2": imageIndex % 2 !== 0,
+							}
+						)}
+					>
+						{image.src ? (
+							<Image
+								src={image.src}
+								alt={image.alt}
+								placeholder="blur"
+								priority
+								quality={30}
+								sizes="(min-width: 640px) 18rem, 11rem"
+								className="absolute inset-0 h-full w-full object-cover transition duration-300 ease-in-out transform hover:scale-105"
+							/>
+						) : (
+							<div className="absolute inset-0 h-full w-full object-cover bg-zinc-100 dark:bg-zinc-800"></div>
+						)}
+					</div>
+				</motion.div>
 			))}
 		</div>
 	);

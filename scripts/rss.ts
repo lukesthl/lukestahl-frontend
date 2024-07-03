@@ -7,7 +7,7 @@ import { ProjectService } from "../services/project.service";
 
 const renderer = new marked.Renderer();
 
-renderer.link = (href, _, text) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+renderer.link = ({ href, text }) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
 
 marked.setOptions({
 	gfm: true,

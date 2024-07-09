@@ -81,35 +81,39 @@ const ImageModal = ({
 	selectedImageIndex: number;
 }) => {
 	console.log(image);
+	const rotation =
+		image.exifData["Image Height"]?.value > image.exifData["Image Width"]?.value ? "horizontal" : "vertical";
 	return (
 		<div>
 			<motion.div
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
+				initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+				animate={{ opacity: 1, backdropFilter: "blur(10px)" }}
 				exit={{ opacity: 0 }}
 				transition={{ duration: 0.2, delay: 0.1 }}
 				style={{ pointerEvents: "auto" }}
-				className="z-50 fixed inset-0 bg-black bg-opacity-50 cursor-pointer"
+				className="z-50 fixed inset-0 bg-black/50 backdrop-blur cursor-pointer"
 				onClick={() => setSelectedImageIndex(null)}
 			/>
-			<div className="inset-0 fixed z-50 overflow-hidden h-screen max-w-[1440px]">
-				<motion.div className="erlative h-full !w-auto " layoutId={`card-image-container-${selectedImageIndex}`}>
-					<Image
-						src={image.url}
-						blurDataURL={image.blurUrl}
-						placeholder="blur"
-						key={`image-${selectedImageIndex}`}
-						alt={`Bild in Galerie ${selectedImageIndex + 1}`}
-						quality={100}
-						className="object-contain !w-auto"
-						fill
-					/>
-				</motion.div>
-				<motion.div className="title-container">
+			<motion.div
+				className={`mx-auto top-0 my-12 bottom-0 left-1/2 right-0 fixed z-50 overflow-hidden -translate-x-1/2 ${rotation === "horizontal" ? "flex" : "grid self-center"} justify-center align-middle`}
+				layoutId={`card-image-container-${selectedImageIndex}`}
+				transformTemplate={({ x, rotate }) => `rotate(${rotate}deg) translateX(${x}px)`}
+			>
+				<Image
+					src={image.url}
+					blurDataURL={image.blurUrl}
+					placeholder="blur"
+					key={`image-${selectedImageIndex}`}
+					alt={`Bild in Galerie ${selectedImageIndex + 1}`}
+					quality={100}
+					className="object-contain rounded-xl !h-auto !w-auto max-w-full max-h-full !relative"
+					fill
+				/>
+				{/* <motion.div className="title-container">
 					<span className="category">{image.exifData.ISO}</span>
 					<h2>{title}</h2>
-				</motion.div>
-			</div>
+				</motion.div> */}
+			</motion.div>
 		</div>
 	);
 };

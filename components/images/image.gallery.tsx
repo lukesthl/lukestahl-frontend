@@ -80,7 +80,6 @@ const ImageModal = ({
 	setSelectedImageIndex: (index: number | null) => void;
 	selectedImageIndex: number;
 }) => {
-	console.log(image);
 	const imageHeight = image.exifData["Image Height"]?.value || 0;
 	const imageWidth = image.exifData["Image Width"]?.value || 0;
 	const rotation = imageHeight > imageWidth ? "horizontal" : "vertical";

@@ -16,7 +16,7 @@ export const SortSelection = ({ value }: { value: string }) => {
 	const router = useRouter();
 	return (
 		<Select value={value} onValueChange={value => router.push(`/images/${value}` as Route)}>
-			<SelectTrigger className="w-44 shadow-lg shadow-zinc-800/5 ">
+			<SelectTrigger className="w-44 shadow-lg shadow-gray-800/5 ">
 				<SelectValue placeholder={translate(`photos.sorter.label`)} />
 			</SelectTrigger>
 			<SelectContent>

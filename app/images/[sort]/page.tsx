@@ -21,11 +21,11 @@ export default async function ImageFilterPage({ params }: { params: { sort: "new
 		sort:
 			params.sort === "new"
 				? (imageA, imageB) =>
-						new Date(imageB.exifData?.DateTimeOriginal || 0).getTime() -
-						new Date(imageA.exifData?.DateTimeOriginal || 0).getTime()
+						new Date(imageB.exifData?.CreateDate?.value || imageB.exifData.DateCreated?.value || 0).getTime() -
+						new Date(imageA.exifData?.CreateDate?.value || imageA.exifData.DateCreated?.value || 0).getTime()
 				: (imageA, imageB) =>
-						new Date(imageA.exifData?.DateTimeOriginal || 0).getTime() -
-						new Date(imageB.exifData?.DateTimeOriginal || 0).getTime(),
+						new Date(imageA.exifData?.CreateDate?.value || imageA.exifData.DateCreated?.value || 0).getTime() -
+						new Date(imageB.exifData?.CreateDate?.value || imageB.exifData.DateCreated?.value || 0).getTime(),
 	});
 	return <ImageGallery images={images} sort={params.sort} />;
 }

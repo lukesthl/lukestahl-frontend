@@ -30,8 +30,8 @@ export class ImageService {
 		} else {
 			sorted = images.sort(
 				(imageA, imageB) =>
-					new Date((imageB.exifData?.DateTimeOriginal as any)?.value[0] || 0).getTime() -
-					new Date((imageA.exifData?.DateTimeOriginal as any)?.value[0] || 0).getTime()
+					new Date(imageB.exifData?.CreateDate?.value || imageB.exifData.DateCreated?.value || 0).getTime() -
+					new Date(imageA.exifData?.CreateDate?.value || imageA.exifData.DateCreated?.value || 0).getTime()
 			);
 		}
 		return sorted;

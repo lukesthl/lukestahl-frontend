@@ -19,7 +19,7 @@ export const ImageGallery = ({ images, sort }: { images: IImage[]; sort: SortSel
 			<Container>
 				<SortSelection value={selectedSortingOption} />
 			</Container>
-			<div className="2xl:max-w-[1440px] 2xl:mx-auto mx-4 mt-8 grid grid-cols-2 gap-2 md:mx-12 md:grid-cols-5">
+			<div className="2xl:max-w-[1440px] 2xl:mx-auto mx-4 mt-8 grid grid-cols-2 gap-2 md:mx-12 md:grid-cols-5 z-10">
 				{images.map((image, imageIndex) => {
 					const largeImage = imageIndex % 5 === 0 && imageIndex !== 0;
 					const twoColumns = imageIndex % 15 === 4 && imageIndex !== 4;
@@ -106,7 +106,7 @@ const ImageModal = ({
 					key={`image-${selectedImageIndex}`}
 					alt={`Bild in Galerie ${selectedImageIndex + 1}`}
 					quality={100}
-					className="object-contain rounded-xl !h-auto !w-auto max-w-full max-h-full !relative"
+					className="object-contain rounded-xl !h-auto !w-auto max-w-full max-h-full !relative z-50"
 					fill
 				/>
 				{/* <motion.div className="title-container">

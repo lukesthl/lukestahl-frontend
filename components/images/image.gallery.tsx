@@ -1,19 +1,18 @@
 "use client";
 import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 import { IImage } from "../../services/image.service";
 import { Container } from "../layout/container";
 import { SortSelection } from "./sort.selection";
-import { animate, AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import { Link } from "lucide-react";
-import { title } from "process";
 
 type SortSelection = "new" | "old";
 
 export const ImageGallery = ({ images, sort }: { images: IImage[]; sort: SortSelection }) => {
 	const selectedSortingOption = sort;
 	const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+	const [imageAnimIndex, setAnimImageIndex] = useState<number | null>(null);
 	return (
 		<div>
 			<Container>
@@ -30,26 +29,31 @@ export const ImageGallery = ({ images, sort }: { images: IImage[]; sort: SortSel
 							//whileInView={{ opacity: 1, scale: 1 }}
 							// transition={{ duration: 5 }}
 							layoutId={`card-image-container-${imageIndex}`}
-							key={`${imageIndex}`}
+							key={`imagecontainer-${imageIndex}`}
+							whileHover={{ scale: 0.95 }}
 							className={clsx(
-								"relative aspect-[9/10] w-full h-full overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-xl transition-transform duration-200 ease-in-out transform hover:scale-95 cursor-pointer",
+								"relative aspect-[9/10] w-full h-full overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-xl cursor-pointer",
 								{
 									"md:col-span-2 md:row-span-2 row-span-2 col-span-2": largeImage,
 									"md:col-span-2": twoColumns,
 									"col-span-2 md:col-span-1": firstTwoColumns && !twoColumns,
 								}
 							)}
+							animate={{ zIndex: imageAnimIndex === imageIndex ? 50 : 0 }}
 							onClick={() => {
 								setSelectedImageIndex(imageIndex);
+								setAnimImageIndex(imageIndex);
 							}}
+							onAnimationEnd={() => setAnimImageIndex(null)}
+							initial={{ zIndex: 0 }}
 						>
+							<div className="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-black/50 to-transparent" />
 							<Image
 								src={image.url}
 								blurDataURL={image.blurUrl}
 								key={`image-${imageIndex}`}
 								placeholder="blur"
 								alt={`Bild in Galerie ${imageIndex + 1}`}
-								quality={100}
 								sizes={largeImage || twoColumns || firstTwoColumns ? "100vw" : "(min-width: 640px) 18rem, 11rem"}
 								fill
 								className="object-cover"
@@ -63,7 +67,9 @@ export const ImageGallery = ({ images, sort }: { images: IImage[]; sort: SortSel
 					<ImageModal
 						selectedImageIndex={selectedImageIndex}
 						image={images[selectedImageIndex]}
-						setSelectedImageIndex={setSelectedImageIndex}
+						setSelectedImageIndex={index => {
+							setSelectedImageIndex(index);
+						}}
 					/>
 				)}
 			</AnimatePresence>
@@ -99,15 +105,16 @@ const ImageModal = ({
 				layoutId={`card-image-container-${selectedImageIndex}`}
 				transformTemplate={({ x, rotate }) => `rotate(${rotate}deg) translateX(${x}px)`}
 			>
-				<Image
+				<img
 					src={image.url}
-					blurDataURL={image.blurUrl}
-					placeholder="blur"
+					// blurDataURL={image.blurUrl}
+					// priority
+					//	placeholder="blur"
 					key={`image-${selectedImageIndex}`}
 					alt={`Bild in Galerie ${selectedImageIndex + 1}`}
-					quality={100}
+					//	quality={100}
 					className="object-contain rounded-xl !h-auto !w-auto max-w-full max-h-full !relative z-50"
-					fill
+					//	fill
 				/>
 				{/* <motion.div className="title-container">
 					<span className="category">{image.exifData.ISO}</span>

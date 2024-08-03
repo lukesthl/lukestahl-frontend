@@ -13,7 +13,11 @@ export const MobileNavigation = ({ className }: { className: string }) => {
 	const [visible, setVisible] = useState(false);
 
 	useMotionValueEvent(scrollYProgress, "change", () => {
-		setVisible(scrollYProgress.get() > 0.1);
+		const visibleNew = scrollYProgress.get() > 0.1;
+		const visibleChanged = visibleNew !== visible;
+		if (visibleChanged) {
+			setVisible(visibleNew);
+		}
 	});
 
 	return (
@@ -25,7 +29,7 @@ export const MobileNavigation = ({ className }: { className: string }) => {
 						position: visible ? "fixed" : "relative",
 					}}
 					className={clsx({
-						"right-1/2 left-1/2 justify-self-center transform -translate-x-1/2 z-50": visible,
+						"right-0 left-0 z-50 flex justify-center": visible,
 					})}
 					transition={{
 						duration: 0.2,

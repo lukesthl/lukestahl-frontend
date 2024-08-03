@@ -1,7 +1,7 @@
 import { Popover, PopoverButton, PopoverOverlay, PopoverPanel, Transition, TransitionChild } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { translate } from "../utils/translation";
 import { navItems } from "./navitems";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
@@ -10,20 +10,12 @@ import clsx from "clsx";
 export const MobileNavigation = ({ className }: { className: string }) => {
 	const { scrollYProgress } = useScroll();
 
-	const [visible, setVisible] = useState(true);
+	const [visible, setVisible] = useState(false);
 
-	useMotionValueEvent(scrollYProgress, "change", current => {
-		// Check if current is not undefined and is a number
-		if (typeof current === "number") {
-			let direction = current! - scrollYProgress.getPrevious()!;
-
-			if (scrollYProgress.get() < 0.1) {
-				setVisible(false);
-			} else {
-				setVisible(true);
-			}
-		}
+	useMotionValueEvent(scrollYProgress, "change", () => {
+		setVisible(scrollYProgress.get() > 0.1);
 	});
+
 	return (
 		<Popover className={className}>
 			<AnimatePresence mode="wait">

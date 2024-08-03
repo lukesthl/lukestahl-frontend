@@ -89,6 +89,7 @@ const ImageModal = ({
 	const imageHeight = image.exifData["Image Height"]?.value || 0;
 	const imageWidth = image.exifData["Image Width"]?.value || 0;
 	const rotation = imageHeight > imageWidth ? "horizontal" : "vertical";
+	const mobileScreen = typeof window !== "undefined" && window.innerWidth < 768;
 	return (
 		<div>
 			<motion.div
@@ -101,10 +102,17 @@ const ImageModal = ({
 				onClick={() => setSelectedImageIndex(null)}
 			/>
 			<motion.div
-				className={`mx-auto top-0 my-12 bottom-0 left-1/2 right-0 fixed z-50 overflow-hidden -translate-x-1/2 ${rotation === "horizontal" ? "flex" : "grid self-center"} justify-center align-middle`}
+				className={clsx(
+					`md:mx-auto top-0 my-12 bottom-0 md:left-1/2 mx-4 right-0 fixed z-50 overflow-hidden md:-translate-x-1/2 `,
+					{
+						"flex justify-center align-middle": rotation === "horizontal" && !mobileScreen,
+						"grid self-center": rotation === "vertical" || mobileScreen,
+					}
+				)}
 				layoutId={`card-image-container-${selectedImageIndex}`}
 				transformTemplate={({ x, rotate }) => `rotate(${rotate}deg) translateX(${x}px)`}
 			>
+				{/* <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-black/50 to-transparent" /> */}
 				<img
 					src={image.url}
 					// blurDataURL={image.blurUrl}

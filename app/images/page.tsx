@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { ImageGallery } from "../../components/images/image.gallery";
 import { translate } from "../../components/utils/translation";
 import { ImageService } from "../../services/image.service";
+import { Suspense } from "react";
 
 const url = new URL(`${process.env.PUBLIC_URL}`);
 const images = [
@@ -28,5 +29,9 @@ export const metadata: Metadata = {
 
 export default async function Images() {
 	const images = await ImageService.getImages();
-	return <ImageGallery images={images} sort="new" />;
+	return (
+		<Suspense>
+			<ImageGallery images={images} sort="new" />
+		</Suspense>
+	);
 }

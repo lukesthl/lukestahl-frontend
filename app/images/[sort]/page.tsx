@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { ImageGallery } from "../../../components/images/image.gallery";
 import { ImageService } from "../../../services/image.service";
+import { Suspense } from "react";
 
 export async function generateStaticParams() {
 	return [
@@ -20,5 +21,9 @@ export default async function ImageFilterPage({ params }: { params: { sort: "new
 	const images = await ImageService.getImages({
 		sort: params.sort,
 	});
-	return <ImageGallery images={images} sort={params.sort} />;
+	return (
+		<Suspense>
+			<ImageGallery images={images} sort={params.sort} />
+		</Suspense>
+	);
 }

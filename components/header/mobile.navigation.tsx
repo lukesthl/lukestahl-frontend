@@ -29,7 +29,7 @@ export const MobileNavigation = ({ className }: { className: string }) => {
 						position: visible ? "fixed" : "relative",
 					}}
 					className={clsx({
-						"right-0 left-0 z-50 flex justify-center": visible,
+						"right-0 left-0 z-40 flex justify-center": visible,
 					})}
 					transition={{
 						duration: 0.2,

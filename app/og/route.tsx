@@ -38,6 +38,7 @@ export async function GET(req: Request) {
 							<div tw="flex flex-row w-full">
 								{bannerUrl && (
 									<div tw="flex flex-col h-full justify-center">
+										{/*eslint-disable-next-line @next/next/no-img-element */}
 										<img
 											tw="w-48 h-32 rounded-lg mr-4"
 											src={`${process.env.PUBLIC_URL}${bannerUrl}`}

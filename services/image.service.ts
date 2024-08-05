@@ -18,6 +18,7 @@ export class ImageService {
 			url: path.split("/public")[1],
 			exifData: JSON.parse(JSON.stringify(exifrResult)),
 			blurUrl: imageBlur || undefined,
+			fileSize: fileBuffer.byteLength,
 		};
 	};
 
@@ -53,4 +54,5 @@ export interface IImage {
 	url: string;
 	blurUrl?: string;
 	exifData: ExifReader.Tags;
+	fileSize: number;
 }

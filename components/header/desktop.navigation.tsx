@@ -31,7 +31,7 @@ export const DesktopNavigation = ({
 	return (
 		<AnimatePresence mode="wait">
 			<motion.nav
-				className={clsx("flex justify-center z-50", className)}
+				className={clsx("flex justify-center z-40", className)}
 				layout
 				style={{
 					position: visible ? "fixed" : "relative",
@@ -49,7 +49,7 @@ export const DesktopNavigation = ({
 								<Link
 									href={item.href}
 									className={clsx("transition", {
-										"text-primary-500 hover:text-primary-500/80": currentPath === item.href,
+										"text-primary-500 hover:text-primary-500/80": currentPath.startsWith(item.href),
 										"hover:text-primary-500": currentPath !== item.href,
 									})}
 								>

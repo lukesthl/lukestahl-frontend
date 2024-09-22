@@ -8,7 +8,7 @@ const resume = [
 	{
 		company: "marcapo",
 		logo: marcapoLogo,
-		name: "Frontend Entwickler",
+		name: "Frontend-Entwickler",
 		start: new Date("2021").toISOString(),
 		end: new Date().toISOString(),
 		type: "job",

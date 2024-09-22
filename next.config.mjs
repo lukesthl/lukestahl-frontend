@@ -14,7 +14,7 @@ const nextConfig = {
 		optimizeCss: true,
 	},
 	images: {
-		domains: ["lukesthl.github.io"],
+		remotePatterns: ["lukesthl.github.io"],
 	},
 	staticPageGenerationTimeout: 1000,
 	productionBrowserSourceMaps: process.env.ANALYZE === "true",

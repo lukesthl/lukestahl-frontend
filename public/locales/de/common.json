@@ -1,11 +1,11 @@
 {
   "home": {
-    "title": "Frontend / App Entwickler, Video- und Fotograf",
+    "title": "Frontend-Entwickler und Hobby-Fotograf",
     "meta": {
-      "title": "Luke Stahl - Frontend Entwickler",
-      "description":  "Frontend Entwickler für Web und Mobile Apps. Technologie-Enthusiast, Video- und Fotograf."
+      "title": "Luke Stahl - Frontend-Entwickler und Hobby-Fotograf",
+      "description":  "Frontend-Entwickler. Technologie-Enthusiast und "
     },
-    "description": "Ich bin Luke, Frontend Entwickler für Web und Mobile Apps. Abseits davon nehme ich gerne Momente mit meiner Kamera auf und liebe es neue Technologien auszuprobieren.",
+    "description": "Ich bin Luke, Frontend-Entwickler. Abseits davon nehme ich gerne Momente mit meiner Kamera auf und liebe es neue Technologien auszuprobieren.",
     "resume": {
       "workexperience": "Berufserfahrung",
       "apprenticeship": "Ausbildung",
@@ -23,7 +23,7 @@
       "title": "Über mich"
     },
     "title": "Hi, ich bin Luke Stahl",
-    "description": "und habe eine Leidenschaft für App- und Website-Entwicklung.\nSeit dem Abschluss meiner Ausbildung arbeite ich bei marcapo als React Entwickler und bin dort für die Entwicklung neuer Module und Features verantwortlich. Nebenbei war ich bei smanax als Freelancer tätig und habe dort verschiedene Projekte für Kunden umgesetzt.\n\nMit 15 Jahren habe ich mein erstes eigenes Spiel mit Unity erstellt. Es war ein super einfaches Endlos-Runner-Spiel, das ich mit meinen ersten Tutorials erstellt hatte und so immer mehr erweiterte. Das Spiel damals auf meiner Samsung Galaxy S2 laufen zu bekommen, war eine echte Herausforderung, da Unity gar nicht für die Samsung Watches offiziel supportet wurde. Mit insgesamt 34.000 Downloads in den App Stores war es für mich mein erster kleiner Erfolg geworden, der mich motiviert hat, mit einer Ausbildung anzufangen.\n\nNeben der Technologie interessiere ich mich für Fotografie und Videografie. Dabei nehme ich gerne Momente von allmöglichen Orten und Situationen auf, die man auf der Website verfolgen kann.\nWenn ich nicht gerade programmiere oder mit meinem Kamera-Equipment unterwegs bin, fliege ich gerne mit meiner selbst gebauten FPV-Drohne. Die Kombination von Technologie und Fliegen ermöglicht es mir, einzigartige Perspektiven und super Aufnahmen aus der Vogelperspektive zu schaffen."
+    "description": "und bin leidenschaftlicher Frontend-Entwickler.\nSeit dem Abschluss meiner Ausbildung arbeite ich bei marcapo als React-Entwickler und bin dort für die Entwicklung neuer Module und Features verantwortlich. Nebenbei war ich bei Digital75 als Fullstack-Entwickler tätig und habe dort verschiedene Projekte für Kunden umgesetzt.\n\nMit 15 Jahren habe ich mein erstes eigenes Spiel mit Unity erstellt. Es war ein super einfaches Endlos-Runner-Spiel, das ich mit meinen ersten Tutorials erstellt hatte und so immer mehr erweiterte. Das Spiel damals auf meiner Samsung Galaxy S2 laufen zu bekommen, war eine echte Herausforderung, da Unity gar nicht für die Samsung Watches offiziel supportet wurde. Mit insgesamt 34.000 Downloads in den App Stores war es für mich mein erster kleiner Erfolg geworden, der mich motiviert hat, mit einer Ausbildung anzufangen.\n\nNeben der Technologie interessiere ich mich für Fotografie und Videografie. Dabei nehme ich gerne Momente von allmöglichen Orten und Situationen auf, die man auf der Website verfolgen kann.\nWenn ich nicht gerade programmiere oder mit meinem Kamera-Equipment unterwegs bin, fliege ich gerne mit meiner selbst gebauten FPV-Drohne"
   },
   "projects": {
     "title": "Übersicht meiner Projekte",

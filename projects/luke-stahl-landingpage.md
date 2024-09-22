@@ -50,14 +50,14 @@ export const metadata: Metadata = {
 		template: "%s | Luke Stahl",
 		default: "Luke Stahl",
 	},
-	description: "Frontend Entwickler aus Bamberg",
+	description: "Frontend-Entwickler aus Bamberg",
 	themeColor: [
 		{ media: "(prefers-color-scheme: light)", color: "#f5f5f5" },
 		{ media: "(prefers-color-scheme: dark)", color: "#000" },
 	],
 	openGraph: {
 		title: "Luke Stahl",
-		description: "Frontend Entwickler aus Bamberg",
+		description: "Frontend-Entwickler aus Bamberg",
 		url: `${url.toString()}`,
 		siteName: "Luke Stahl Website",
 		locale: "de_DE",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
 		images: [
 			{
 				url: `${url.toString()}og?title=${encodeURIComponent(
-					"Frontend / App Entwickler, Video- und Hobby-Fotograf."
+					"Frontend-Entwickler und Hobby-Fotograf."
 				)}&description=${encodeURIComponent("Ich bin Luke, Frontend Entwickler für Web und Mobile Apps")}`,
 				width: 1200,
 				height: 630,

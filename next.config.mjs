@@ -14,7 +14,12 @@ const nextConfig = {
 		optimizeCss: true,
 	},
 	images: {
-		remotePatterns: ["lukesthl.github.io"],
+		remotePatterns: [
+			{
+				hostname: "lukesthl.github.io",
+				protocol: "https",
+			},
+		],
 	},
 	staticPageGenerationTimeout: 1000,
 	productionBrowserSourceMaps: process.env.ANALYZE === "true",

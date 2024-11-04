@@ -11,9 +11,10 @@ import { Route } from "next";
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
 	const url = new URL(`${process.env.PUBLIC_URL}/og`);
-	const project = await ProjectService.getProjectByFileName(`${params.slug}.md`);
+	const { slug } = await params;
+	const project = await ProjectService.getProjectByFileName(`${slug}.md`);
 	url.searchParams.set("title", project.meta.title);
 	url.searchParams.set("description", project.meta.description);
 	if (project.meta.bannerImage) {
@@ -83,8 +84,9 @@ const mdxComponents: MDXRemoteProps["components"] = {
 	},
 };
 
-export default async function Projects({ params }: { params: { slug: string } }) {
-	const project = await ProjectService.getProjectByFileName(`${params.slug}.md`);
+export default async function Projects({ params }: { params: Promise<{ slug: string }> }) {
+	const { slug } = await params;
+	const project = await ProjectService.getProjectByFileName(`${slug}.md`);
 	if (!project.content) {
 		notFound();
 	}

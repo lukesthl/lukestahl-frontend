@@ -6,10 +6,6 @@ export const navItems: {
 	footerOnly?: boolean;
 }[] = [
 	{
-		href: "/about",
-		key: "navigation.about",
-	},
-	{
 		href: "/projects",
 		key: "navigation.projects",
 	},

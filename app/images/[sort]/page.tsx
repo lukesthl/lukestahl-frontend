@@ -14,16 +14,17 @@ export async function generateStaticParams() {
 	];
 }
 
-export default async function ImageFilterPage({ params }: { params: { sort: "new" | "old" } }) {
-	if (!params.sort || (params.sort !== "new" && params.sort !== "old")) {
+export default async function ImageFilterPage({ params }: { params: Promise<{ sort: "new" | "old" }> }) {
+	const { sort } = await params;
+	if (!sort || (sort !== "new" && sort !== "old")) {
 		notFound();
 	}
 	const images = await ImageService.getImages({
-		sort: params.sort,
+		sort,
 	});
 	return (
 		<Suspense>
-			<ImageGallery images={images} sort={params.sort} />
+			<ImageGallery images={images} sort={sort} />
 		</Suspense>
 	);
 }

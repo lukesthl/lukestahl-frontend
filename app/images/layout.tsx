@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 								sizes="(min-width: 640px) 18rem, 11rem"
 								alt="my camera"
 								className="object-cover -translate-y-32"
-								placeholder="blur-sm"
+								placeholder="blur"
 								priority
 							/>
 						</div>

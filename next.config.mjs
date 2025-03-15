@@ -50,6 +50,7 @@ const nextConfig = {
 			},
 		];
 	},
+	transpilePackages: ["next-mdx-remote"], // https://github.com/hashicorp/next-mdx-remote/issues/488
 };
 
 const ContentSecurityPolicy = `

@@ -121,7 +121,7 @@ export default async function Projects({ params }: { params: Promise<{ slug: str
 										className="rounded-2xl object-cover"
 										{...(project.meta.bannerImageBlur
 											? {
-													placeholder: "blur-sm",
+													placeholder: "blur",
 													blurDataURL: project.meta.bannerImageBlur,
 												}
 											: {})}

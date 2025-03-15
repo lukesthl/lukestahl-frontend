@@ -81,7 +81,7 @@ export const ImageGallery = ({ images, sort }: { images: IImage[]; sort: SortSel
 								src={image.url}
 								blurDataURL={image.blurUrl}
 								key={`image-${imageIndex}`}
-								placeholder="blur-sm"
+								placeholder="blur"
 								alt={`Bild in Galerie ${imageIndex + 1}`}
 								sizes={largeImage || twoColumns || firstTwoColumns ? "100vw" : "(min-width: 640px) 18rem, 11rem"}
 								fill

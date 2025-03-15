@@ -95,7 +95,7 @@ export const TechStack = () => (
 		<div className="mt-5 flex flex-wrap justify-center gap-2 sm:gap-4">
 			{stack.map(({ logo: Logo, ...stackItem }) => (
 				<div
-					className="rounded-full bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10"
+					className="rounded-full bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10"
 					data-padding={"6px"}
 					id={`stack-tooltip-${stackItem.key}`}
 					key={stackItem.key}

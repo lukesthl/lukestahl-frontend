@@ -8,7 +8,7 @@ export const Avatar = ({ size = "small", visible = true }: { size?: "small" | "l
 		<Link href="/" aria-label="Home" className="flex">
 			<div
 				className={clsx(
-					"text-zinc800 overflow-hidden rounded-full bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10",
+					"text-zinc800 overflow-hidden rounded-full bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10",
 					{ "opacity-0": !visible }
 				)}
 			>

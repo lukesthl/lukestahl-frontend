@@ -14,9 +14,9 @@ export const LocationMap = () => {
 				<p className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">{translate("home.resume.location")}</p>
 			</div>
 			<div className="mt-5">
-				<div className="group relative col-span-3 flex h-full flex-shrink-0 overflow-hidden rounded-xl">
+				<div className="group relative col-span-3 flex h-full shrink-0 overflow-hidden rounded-xl">
 					<MapImage />
-					<div className="absolute top-1/2 left-1/2 z-10 flex w-full flex-shrink-0 -translate-x-1/2 -translate-y-1/2 flex-col items-center space-y-2">
+					<div className="absolute top-1/2 left-1/2 z-10 flex w-full shrink-0 -translate-x-1/2 -translate-y-1/2 flex-col items-center space-y-2">
 						<div aria-hidden className="absolute top-3">
 							<span className="block h-12 w-12 animate-ping rounded-full bg-primary-500 duration-1000" />
 						</div>

@@ -87,7 +87,7 @@ export const HorizontalImageList = () => {
 					<div
 						key={imageIndex}
 						className={clsx(
-							"aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
+							"aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
 							{
 								"rotate-2": imageIndex % 2 === 0,
 								"-rotate-2": imageIndex % 2 !== 0,

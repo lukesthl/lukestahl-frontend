@@ -41,7 +41,7 @@ export const DesktopNavigation = ({
 				}}
 				{...props}
 			>
-				<ul className="text-zinc-800 flex rounded-full bg-white/80 px-3 text-sm font-medium shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/40 dark:text-zinc-200 dark:ring-white/10">
+				<ul className="text-zinc-800 flex rounded-full bg-white/80 px-3 text-sm font-medium shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/40 dark:text-zinc-200 dark:ring-white/10">
 					{navItems
 						.filter(navItem => !navItem.footerOnly)
 						.map(item => (

@@ -71,7 +71,7 @@ export const Resume = () => (
 
 const ResumeItem = ({ resumeItem }: { resumeItem: (typeof resume)[0] }) => (
 	<div className="flex items-center gap-4">
-		<div className="rounded-full bg-white/90 p-[6px] shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+		<div className="rounded-full bg-white/90 p-[6px] shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
 			<Image src={resumeItem.logo} className="h-8 w-8 rounded-full" alt={resumeItem.company} />
 		</div>
 		<div className="flex-1">

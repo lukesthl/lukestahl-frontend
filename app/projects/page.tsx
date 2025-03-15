@@ -65,7 +65,7 @@ export default async function Projects() {
 const ProjectContent = ({ project }: { project: IProject }) => (
 	<>
 		<div className="flex">
-			<div className="rounded-full bg-white/90 p-[0.35rem] shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+			<div className="rounded-full bg-white/90 p-[0.35rem] shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
 				<div className="relative h-8 w-8">
 					<Image
 						src={project.meta.icon}

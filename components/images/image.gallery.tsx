@@ -60,7 +60,7 @@ export const ImageGallery = ({ images, sort }: { images: IImage[]; sort: SortSel
 							key={`imagecontainer-${imageIndex}`}
 							whileHover={{ scale: 0.95 }}
 							className={clsx(
-								"relative aspect-[9/10] w-full h-full overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-xl cursor-pointer",
+								"relative aspect-9/10 w-full h-full overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:rounded-xl cursor-pointer",
 								{
 									"md:col-span-2 md:row-span-2 row-span-2 col-span-2": largeImage,
 									"md:col-span-2": twoColumns,
@@ -76,12 +76,12 @@ export const ImageGallery = ({ images, sort }: { images: IImage[]; sort: SortSel
 							onAnimationEnd={() => setAnimImageIndex(null)}
 							initial={{ zIndex: 0 }}
 						>
-							<div className="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-black/50 to-transparent" />
+							<div className="w-full h-full absolute top-0 left-0 bg-linear-to-t from-black/50 to-transparent" />
 							<Image
 								src={image.url}
 								blurDataURL={image.blurUrl}
 								key={`image-${imageIndex}`}
-								placeholder="blur"
+								placeholder="blur-sm"
 								alt={`Bild in Galerie ${imageIndex + 1}`}
 								sizes={largeImage || twoColumns || firstTwoColumns ? "100vw" : "(min-width: 640px) 18rem, 11rem"}
 								fill
@@ -230,7 +230,7 @@ const ImageModal = ({
 				exit={{ opacity: 0 }}
 				transition={{ duration: 0.2 }}
 				style={{ pointerEvents: "auto" }}
-				className="z-40 fixed inset-0 bg-black/50 backdrop-blur cursor-pointer"
+				className="z-40 fixed inset-0 bg-black/50 backdrop-blur-sm cursor-pointer"
 				onClick={() => setSelectedImageIndex(null)}
 			/>
 			<AnimatePresence initial={false} custom={direction}>
@@ -315,24 +315,24 @@ const ImageModal = ({
 			</AnimatePresence>
 			<div
 				onClick={() => paginate(-1)}
-				className="fixed top-1/2 transform -translate-y-1/2 left-0 z-[60] flex items-center justify-center w-12 h-12 bg-black/70 rounded-full cursor-pointer text-gray-300 hover:bg-black/80 hover:text-gray-500 hover:scale-95 md:ml-4 ml-1 transition duration-200 ease-in-out"
+				className="fixed top-1/2 transform -translate-y-1/2 left-0 z-60 flex items-center justify-center w-12 h-12 bg-black/70 rounded-full cursor-pointer text-gray-300 hover:bg-black/80 hover:text-gray-500 hover:scale-95 md:ml-4 ml-1 transition duration-200 ease-in-out"
 			>
 				<ChevronLeft size={24} />
 			</div>
 			<div
 				onClick={() => paginate(1)}
-				className="fixed top-1/2 transform -translate-y-1/2 right-0 z-[60] flex items-center justify-center w-12 h-12 bg-black/70 rounded-full cursor-pointer text-gray-300 hover:bg-black/80 hover:text-gray-500 hover:scale-95 md:mr-4 mr-1 transition duration-200 ease-in-out"
+				className="fixed top-1/2 transform -translate-y-1/2 right-0 z-60 flex items-center justify-center w-12 h-12 bg-black/70 rounded-full cursor-pointer text-gray-300 hover:bg-black/80 hover:text-gray-500 hover:scale-95 md:mr-4 mr-1 transition duration-200 ease-in-out"
 			>
 				<ChevronRight size={24} />
 			</div>
 			<div
 				onClick={() => setSelectedImageIndex(null)}
-				className="fixed top-4 right-4 z-[60] flex items-center justify-center bg-black/70 rounded-full cursor-pointer text-gray-300 hover:bg-black/80 hover:text-gray-500 hover:scale-95 w-12 h-12 transition duration-200 ease-in-out"
+				className="fixed top-4 right-4 z-60 flex items-center justify-center bg-black/70 rounded-full cursor-pointer text-gray-300 hover:bg-black/80 hover:text-gray-500 hover:scale-95 w-12 h-12 transition duration-200 ease-in-out"
 			>
 				<XIcon size={24} />
 			</div>
 			{/* Action bar? */}
-			{/* <div className="fixed bottom-4 right-0 left-0 z-[60] flex items-center justify-center gap-2">
+			{/* <div className="fixed bottom-4 right-0 left-0 z-60 flex items-center justify-center gap-2">
 				<div className="text-gray-300 bg-black/70 rounded-full p-2 cursor-pointer hover:bg-black/80 hover:text-gray-500 hover:scale-95 transition duration-200 ease-in-out">
 				// show image on map
 					<MapIcon size={24} />
